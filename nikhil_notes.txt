@@ -1,0 +1,15 @@
+CMAKE setup (in build)
+
+cmake .. -G "MinGW Makefiles" -DCMAKE_C_COMPILER=C:/ProgramData/mingw64/mingw64/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/ProgramData/mingw64/mingw64/bin/g++.exe
+
+Then just run make in build
+
+https://github.com/BalazsJako/ImGuiColorTextEdit
+https://github.com/Nelarius/imnodes
+https://github.com/aiekick/ImGuiFileDialog
+
+#define IMGUI_DEFINE_MATH_OPERATORS true
+lol
+
+TODO 8/8/2024
+make it so that explorer and code preview cant overlap
