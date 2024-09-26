@@ -1,5 +1,8 @@
-#ifndef FILE_HANDLER_HPP
-#define FILE_HANDLER_HPP
+#ifndef FILE_HANDLER_H
+#define FILE_HANDLER_H
+
+#define FILE_DIALOG_WINDOW_WIDTH 600
+#define FILE_DIALOG_WINDOW_HEIGHT 400
 
 #define IMGUI_DEFINE_MATH_OPERATORS true
 
@@ -16,6 +19,8 @@
 #include "TextEditor.h"
 
 #include "ImGuiFileDialog.h"
+
+#include "imgui_helpers.h"
 
 #include <iostream>
 

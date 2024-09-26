@@ -1,5 +1,7 @@
-#ifndef FILE_EXPLORER_HPP
-#define FILE_EXPLORER_HPP
+#ifndef NODE_EDITOR_H
+#define NODE_EDITOR_H
+
+#define IMGUI_DEFINE_MATH_OPERATORS true
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -15,10 +17,10 @@
 
 #include "ImGuiFileDialog.h"
 
-#include "imgui_helpers.hpp"
-
 #include <iostream>
 
-void draw_file_explorer(Window_Neighbor_Info * wni, std::string path);
+#include "imgui_helpers.h"
+
+void draw_node_editor(int hardcoded_node_id, Window_Neighbor_Info * wni);
 
 #endif

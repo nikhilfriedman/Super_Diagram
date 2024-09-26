@@ -1,25 +1,4 @@
-#define IMGUI_DEFINE_MATH_OPERATORS true
-
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
-
-#include "imnodes.h"
-#include "imnodes_internal.h"
-
-#include "TextEditor.h"
-
-#include "ImGuiFileDialog.h"
-
-#include "imgui_helpers.hpp"
-
-#include <iostream>
-#include <filesystem>
-
-#include "file_explorer.hpp"
+#include "file_explorer.h"
 
 void display_directory_tree(const std::filesystem::path& path_to_display)
 {

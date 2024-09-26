@@ -1,5 +1,7 @@
-#ifndef CODE_PREVIEW_HPP
-#define CODE_PREVIEW_HPP
+#ifndef SCORE_H
+#define SCORE_H
+
+#define IMGUI_DEFINE_MATH_OPERATORS true
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -15,10 +17,10 @@
 
 #include "ImGuiFileDialog.h"
 
-#include "imgui_helpers.hpp"
-
 #include <iostream>
 
-void draw_text_editor(TextEditor * editor, Window_Neighbor_Info * wni);
+#include "imgui_helpers.h"
+
+void draw_score(Window_Neighbor_Info * wni);
 
 #endif

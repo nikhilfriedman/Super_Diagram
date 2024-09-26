@@ -1,5 +1,7 @@
-#ifndef NODE_EDITOR_HPP
-#define NODE_EDITOR_HPP
+#ifndef CODE_PREVIEW_H
+#define CODE_PREVIEW_H
+
+#define IMGUI_DEFINE_MATH_OPERATORS true
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -15,10 +17,10 @@
 
 #include "ImGuiFileDialog.h"
 
-#include "imgui_helpers.hpp"
+#include "imgui_helpers.h"
 
 #include <iostream>
 
-void draw_node_editor(int hardcoded_node_id, Window_Neighbor_Info * wni);
+void draw_text_editor(TextEditor * editor, Window_Neighbor_Info * wni);
 
 #endif

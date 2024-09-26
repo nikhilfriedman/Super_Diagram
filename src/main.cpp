@@ -17,13 +17,14 @@
 
 #include <iostream>
 
-#include "menu_bar.hpp"
-#include "file_explorer.hpp"
-#include "code_preview.hpp"
-#include "node_editor.hpp"
-#include "imgui_helpers.hpp"
-#include "file_handler.hpp"
-#include "score.hpp"
+#include "menu_bar.h"
+#include "file_explorer.h"
+#include "code_preview.h"
+#include "node_editor.h"
+#include "imgui_helpers.h"
+#include "file_handler.h"
+#include "score.h"
+#include "folder_selection.h"
 
 #include "stb/stb_image.h"
 
@@ -116,6 +117,10 @@ int main(int, char**)
     // Main menu
     bool quit = false;
 
+    FolderSelector fs = FolderSelector(400, 600);
+    fs.enable_folder_select();
+    path = "..";
+
     while (!glfwWindowShouldClose(window))
     {
         if(quit) break;
@@ -123,6 +128,8 @@ int main(int, char**)
         imgui_init_render();
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
+
+        /*
 
         wni.vert_sep_1 = ImClamp(wni.vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
         wni.vert_sep_2 = ImClamp(wni.vert_sep_2, wni.vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
@@ -173,11 +180,17 @@ int main(int, char**)
 
         if(wni.viewing_file_explorer) draw_file_explorer(&wni, path);
 
+
         if(wni.viewing_score) draw_score(&wni);
 
         draw_node_editor(hardcoded_node_id, &wni);
 
         if(wni.viewing_code_preview) draw_text_editor(&editor, &wni);
+
+        */
+
+        fs.draw_folder_select(window, &path);
+
 
         imgui_render_frame(window, &display_w, &display_h);
     }

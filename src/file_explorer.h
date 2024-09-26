@@ -1,5 +1,7 @@
-#ifndef MENU_BAR_HPP
-#define MENU_BAR_HPP
+#ifndef FILE_EXPLORER_H
+#define FILE_EXPLORER_H
+
+#define IMGUI_DEFINE_MATH_OPERATORS true
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -15,10 +17,11 @@
 
 #include "ImGuiFileDialog.h"
 
-#include "imgui_helpers.hpp"
+#include "imgui_helpers.h"
 
 #include <iostream>
+#include <filesystem>
 
-void draw_menu(IGFD::FileDialogConfig * config, bool * quit, Window_Neighbor_Info * wni);
+void draw_file_explorer(Window_Neighbor_Info * wni, std::string path);
 
 #endif
