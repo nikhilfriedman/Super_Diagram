@@ -1,5 +1,6 @@
 CMakeFiles/super_diagram.dir/src/score.cpp.obj: \
  C:\Github\Super_Diagram\src\score.cpp \
+ C:\Github\Super_Diagram\src\score.h \
  C:/Github/Super_Diagram/external/glad/include/glad/glad.h \
  C:/Github/Super_Diagram/external/glad/include/KHR/khrplatform.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
@@ -345,7 +346,6 @@ CMakeFiles/super_diagram.dir/src/score.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_executor.tcc \
  C:/Github/Super_Diagram/external/ImGuiFileDialog/ImGuiFileDialog.h \
  C:/Github/Super_Diagram/external/ImGuiFileDialog/ImGuiFileDialogConfig.h \
- C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdint \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/set \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_set.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_multiset.h \
@@ -355,6 +355,7 @@ CMakeFiles/super_diagram.dir/src/score.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/mutex \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/chrono.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ratio \
+ C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdint \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/parse_numbers.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/std_mutex.h \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/unique_lock.h \
@@ -371,5 +372,4 @@ CMakeFiles/super_diagram.dir/src/score.cpp.obj: \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/fstream.tcc \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/functional \
  C:/ProgramData/mingw64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iostream \
- C:\Github\Super_Diagram\src\imgui_helpers.hpp \
- C:\Github\Super_Diagram\src\score.hpp
+ C:\Github\Super_Diagram\src\imgui_helpers.h

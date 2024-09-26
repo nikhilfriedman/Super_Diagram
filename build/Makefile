@@ -574,6 +574,30 @@ src/file_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\super_diagram.dir\build.make CMakeFiles/super_diagram.dir/src/file_handler.cpp.s
 .PHONY : src/file_handler.cpp.s
 
+src/folder_selection.obj: src/folder_selection.cpp.obj
+.PHONY : src/folder_selection.obj
+
+# target to build an object file
+src/folder_selection.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\super_diagram.dir\build.make CMakeFiles/super_diagram.dir/src/folder_selection.cpp.obj
+.PHONY : src/folder_selection.cpp.obj
+
+src/folder_selection.i: src/folder_selection.cpp.i
+.PHONY : src/folder_selection.i
+
+# target to preprocess a source file
+src/folder_selection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\super_diagram.dir\build.make CMakeFiles/super_diagram.dir/src/folder_selection.cpp.i
+.PHONY : src/folder_selection.cpp.i
+
+src/folder_selection.s: src/folder_selection.cpp.s
+.PHONY : src/folder_selection.s
+
+# target to generate assembly for a file
+src/folder_selection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\super_diagram.dir\build.make CMakeFiles/super_diagram.dir/src/folder_selection.cpp.s
+.PHONY : src/folder_selection.cpp.s
+
 src/imgui_helpers.obj: src/imgui_helpers.cpp.obj
 .PHONY : src/imgui_helpers.obj
 
@@ -754,6 +778,9 @@ help:
 	@echo ... src/file_handler.obj
 	@echo ... src/file_handler.i
 	@echo ... src/file_handler.s
+	@echo ... src/folder_selection.obj
+	@echo ... src/folder_selection.i
+	@echo ... src/folder_selection.s
 	@echo ... src/imgui_helpers.obj
 	@echo ... src/imgui_helpers.i
 	@echo ... src/imgui_helpers.s

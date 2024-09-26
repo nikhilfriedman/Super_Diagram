@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/super_diagram.dir/src/file_explorer.cpp.obj.d"
   "CMakeFiles/super_diagram.dir/src/file_handler.cpp.obj"
   "CMakeFiles/super_diagram.dir/src/file_handler.cpp.obj.d"
+  "CMakeFiles/super_diagram.dir/src/folder_selection.cpp.obj"
+  "CMakeFiles/super_diagram.dir/src/folder_selection.cpp.obj.d"
   "CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.obj"
   "CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.obj.d"
   "CMakeFiles/super_diagram.dir/src/main.cpp.obj"
