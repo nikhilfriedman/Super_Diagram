@@ -1,7 +1,7 @@
 #ifndef SCORE_H
 #define SCORE_H
 
-#define IMGUI_DEFINE_MATH_OPERATORS true
+#define IMGUI_DEFINE_MATH_OPERATORS
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

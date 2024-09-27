@@ -4,7 +4,7 @@
 #define FILE_DIALOG_WINDOW_WIDTH 600
 #define FILE_DIALOG_WINDOW_HEIGHT 400
 
-#define IMGUI_DEFINE_MATH_OPERATORS true
+#define IMGUI_DEFINE_MATH_OPERATORS
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

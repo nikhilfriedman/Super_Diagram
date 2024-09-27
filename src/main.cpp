@@ -1,4 +1,4 @@
-#define IMGUI_DEFINE_MATH_OPERATORS true
+#define IMGUI_DEFINE_MATH_OPERATORS
 #define STB_IMAGE_IMPLEMENTATION
 
 #include <glad/glad.h>
@@ -117,9 +117,9 @@ int main(int, char**)
     // Main menu
     bool quit = false;
 
-    FolderSelector fs = FolderSelector(400, 600);
+    FolderSelector fs = FolderSelector(600, 400);
     fs.enable_folder_select();
-    path = "..";
+    path = "/";
 
     while (!glfwWindowShouldClose(window))
     {
