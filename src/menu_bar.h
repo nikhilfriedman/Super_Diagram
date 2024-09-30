@@ -22,6 +22,8 @@
 
 #include "imgui_helpers.h"
 
+#include "folder_selection.h"
+
 #include <iostream>
 
 void draw_menu(IGFD::FileDialogConfig * config, bool * quit, Window_Neighbor_Info * wni);

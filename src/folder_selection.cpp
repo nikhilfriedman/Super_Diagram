@@ -1,19 +1,27 @@
 #include "folder_selection.h"
 
-FolderSelector::FolderSelector(int width, int height) {
+bool FolderSelector::enabled = false;
+int FolderSelector::window_width = 0;
+int FolderSelector::window_height = 0;
+std::string FolderSelector::selected_folder_path = "/"; // You need to define this even if it's a std::string
+GLFWwindow* FolderSelector::window = nullptr; // Pointer to GLFWwindow
+
+FolderSelector::FolderSelector(int width, int height, std::string path, GLFWwindow * window) {
     enabled = false;
 
     window_width = width;
     window_height = height;
 
-    selected_folder = "";
+    selected_folder_path = "path";
+
+    window = window;
 }
 
 void FolderSelector::enable_folder_select() {
     enabled = true;
 }
 
-static void draw_directory(const std::filesystem::path& dir_path, std::string * selected) {
+void draw_directory(const std::filesystem::path& dir_path, std::string * selected) {
     try {
         for(const auto& entry : std::filesystem::directory_iterator(dir_path)) {
             const auto& path = entry.path();
@@ -42,10 +50,9 @@ static void draw_directory(const std::filesystem::path& dir_path, std::string * 
 
         ImGui::End();
     }
-
 }
 
-void FolderSelector::draw_folder_select(GLFWwindow * window, std::string * path) {
+void FolderSelector::draw_folder_select(std::string * path) {
     if(enabled) {
         // TODO : update to make more accurate
         float menu_size = ImGui::GetFrameHeight();
@@ -58,18 +65,18 @@ void FolderSelector::draw_folder_select(GLFWwindow * window, std::string * path)
 
         ImGui::Begin("Test", NULL, ImGuiWindowFlags_NoTitleBar);
 
-        ImGui::Text("/%s", selected_folder.c_str());
+        ImGui::Text("/%s", selected_folder_path.c_str());
         ImGui::Text(" ");
 
         ImGui::BeginChild("TreeScrollArea", ImVec2(0, 300), true, ImGuiWindowFlags_HorizontalScrollbar);
 
         if((* path).size() != 0) {
-            draw_directory(std::filesystem::path(* path), &selected_folder);
+            draw_directory(std::filesystem::path(* path), &selected_folder_path);
         } else {
             ImGui::BulletText("No directory selected.");
         }
 
-        ImGui::EndChild(); // End the scrollable region
+        ImGui::EndChild();
 
         if(ImGui::Button("Test")) {
             enabled = false;

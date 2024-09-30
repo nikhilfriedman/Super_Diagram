@@ -17,21 +17,25 @@
 
 class FolderSelector {
     public:
-        FolderSelector(int width, int height);
+        FolderSelector(int width, int height, std::string path, GLFWwindow * window);
         ~FolderSelector();
         
-        void enable_folder_select();
-        void draw_folder_select(GLFWwindow * window, std::string * path);
+        static void enable_folder_select();
+        static void draw_folder_select(std::string * path);
     private:
         // window size
-        int window_width;
-        int window_height;
+        static int window_width;
+        static int window_height;
 
         // drawing? 
-        bool enabled;
+        static bool enabled;
 
         // file system
-        std::string selected_folder;
+        static std::string selected_folder_path;
+        static std::string selected_folder_name;
+
+        // glfw
+        static GLFWwindow * window;
 };
 
 #endif

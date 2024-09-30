@@ -117,8 +117,8 @@ int main(int, char**)
     // Main menu
     bool quit = false;
 
-    FolderSelector fs = FolderSelector(600, 400);
-    fs.enable_folder_select();
+    FolderSelector fs = FolderSelector(600, 400, "/", window);
+    FolderSelector::enable_folder_select();
     path = "/";
 
     while (!glfwWindowShouldClose(window))
@@ -189,8 +189,7 @@ int main(int, char**)
 
         */
 
-        fs.draw_folder_select(window, &path);
-
+        FolderSelector::draw_folder_select(&path);
 
         imgui_render_frame(window, &display_w, &display_h);
     }
