@@ -73,127 +73,127 @@ CMakeFiles/super_diagram.dir/src/main.cpp.o: CMakeFiles/super_diagram.dir/flags.
 CMakeFiles/super_diagram.dir/src/main.cpp.o: /home/nikhil/Github/Super_Diagram/src/main.cpp
 CMakeFiles/super_diagram.dir/src/main.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/super_diagram.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/main.cpp.o -MF CMakeFiles/super_diagram.dir/src/main.cpp.o.d -o CMakeFiles/super_diagram.dir/src/main.cpp.o -c /home/nikhil/Github/Super_Diagram/src/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/main.cpp.o -MF CMakeFiles/super_diagram.dir/src/main.cpp.o.d -o CMakeFiles/super_diagram.dir/src/main.cpp.o -c /home/nikhil/Github/Super_Diagram/src/main.cpp
 
 CMakeFiles/super_diagram.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/main.cpp > CMakeFiles/super_diagram.dir/src/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/main.cpp > CMakeFiles/super_diagram.dir/src/main.cpp.i
 
 CMakeFiles/super_diagram.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/main.cpp -o CMakeFiles/super_diagram.dir/src/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/main.cpp -o CMakeFiles/super_diagram.dir/src/main.cpp.s
 
 CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o: CMakeFiles/super_diagram.dir/flags.make
 CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o: /home/nikhil/Github/Super_Diagram/src/menu_bar.cpp
 CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o -MF CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o.d -o CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o -c /home/nikhil/Github/Super_Diagram/src/menu_bar.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o -MF CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o.d -o CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o -c /home/nikhil/Github/Super_Diagram/src/menu_bar.cpp
 
 CMakeFiles/super_diagram.dir/src/menu_bar.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/menu_bar.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/menu_bar.cpp > CMakeFiles/super_diagram.dir/src/menu_bar.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/menu_bar.cpp > CMakeFiles/super_diagram.dir/src/menu_bar.cpp.i
 
 CMakeFiles/super_diagram.dir/src/menu_bar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/menu_bar.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/menu_bar.cpp -o CMakeFiles/super_diagram.dir/src/menu_bar.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/menu_bar.cpp -o CMakeFiles/super_diagram.dir/src/menu_bar.cpp.s
 
 CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o: CMakeFiles/super_diagram.dir/flags.make
 CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o: /home/nikhil/Github/Super_Diagram/src/file_explorer.cpp
 CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o -MF CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o.d -o CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o -c /home/nikhil/Github/Super_Diagram/src/file_explorer.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o -MF CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o.d -o CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o -c /home/nikhil/Github/Super_Diagram/src/file_explorer.cpp
 
 CMakeFiles/super_diagram.dir/src/file_explorer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/file_explorer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/file_explorer.cpp > CMakeFiles/super_diagram.dir/src/file_explorer.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/file_explorer.cpp > CMakeFiles/super_diagram.dir/src/file_explorer.cpp.i
 
 CMakeFiles/super_diagram.dir/src/file_explorer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/file_explorer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/file_explorer.cpp -o CMakeFiles/super_diagram.dir/src/file_explorer.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/file_explorer.cpp -o CMakeFiles/super_diagram.dir/src/file_explorer.cpp.s
 
 CMakeFiles/super_diagram.dir/src/code_preview.cpp.o: CMakeFiles/super_diagram.dir/flags.make
 CMakeFiles/super_diagram.dir/src/code_preview.cpp.o: /home/nikhil/Github/Super_Diagram/src/code_preview.cpp
 CMakeFiles/super_diagram.dir/src/code_preview.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/super_diagram.dir/src/code_preview.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/code_preview.cpp.o -MF CMakeFiles/super_diagram.dir/src/code_preview.cpp.o.d -o CMakeFiles/super_diagram.dir/src/code_preview.cpp.o -c /home/nikhil/Github/Super_Diagram/src/code_preview.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/code_preview.cpp.o -MF CMakeFiles/super_diagram.dir/src/code_preview.cpp.o.d -o CMakeFiles/super_diagram.dir/src/code_preview.cpp.o -c /home/nikhil/Github/Super_Diagram/src/code_preview.cpp
 
 CMakeFiles/super_diagram.dir/src/code_preview.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/code_preview.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/code_preview.cpp > CMakeFiles/super_diagram.dir/src/code_preview.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/code_preview.cpp > CMakeFiles/super_diagram.dir/src/code_preview.cpp.i
 
 CMakeFiles/super_diagram.dir/src/code_preview.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/code_preview.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/code_preview.cpp -o CMakeFiles/super_diagram.dir/src/code_preview.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/code_preview.cpp -o CMakeFiles/super_diagram.dir/src/code_preview.cpp.s
 
 CMakeFiles/super_diagram.dir/src/node_editor.cpp.o: CMakeFiles/super_diagram.dir/flags.make
 CMakeFiles/super_diagram.dir/src/node_editor.cpp.o: /home/nikhil/Github/Super_Diagram/src/node_editor.cpp
 CMakeFiles/super_diagram.dir/src/node_editor.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/super_diagram.dir/src/node_editor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/node_editor.cpp.o -MF CMakeFiles/super_diagram.dir/src/node_editor.cpp.o.d -o CMakeFiles/super_diagram.dir/src/node_editor.cpp.o -c /home/nikhil/Github/Super_Diagram/src/node_editor.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/node_editor.cpp.o -MF CMakeFiles/super_diagram.dir/src/node_editor.cpp.o.d -o CMakeFiles/super_diagram.dir/src/node_editor.cpp.o -c /home/nikhil/Github/Super_Diagram/src/node_editor.cpp
 
 CMakeFiles/super_diagram.dir/src/node_editor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/node_editor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/node_editor.cpp > CMakeFiles/super_diagram.dir/src/node_editor.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/node_editor.cpp > CMakeFiles/super_diagram.dir/src/node_editor.cpp.i
 
 CMakeFiles/super_diagram.dir/src/node_editor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/node_editor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/node_editor.cpp -o CMakeFiles/super_diagram.dir/src/node_editor.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/node_editor.cpp -o CMakeFiles/super_diagram.dir/src/node_editor.cpp.s
 
 CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o: CMakeFiles/super_diagram.dir/flags.make
 CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o: /home/nikhil/Github/Super_Diagram/src/imgui_helpers.cpp
 CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o -MF CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o.d -o CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o -c /home/nikhil/Github/Super_Diagram/src/imgui_helpers.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o -MF CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o.d -o CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o -c /home/nikhil/Github/Super_Diagram/src/imgui_helpers.cpp
 
 CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/imgui_helpers.cpp > CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/imgui_helpers.cpp > CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.i
 
 CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/imgui_helpers.cpp -o CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/imgui_helpers.cpp -o CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.s
 
 CMakeFiles/super_diagram.dir/src/file_handler.cpp.o: CMakeFiles/super_diagram.dir/flags.make
 CMakeFiles/super_diagram.dir/src/file_handler.cpp.o: /home/nikhil/Github/Super_Diagram/src/file_handler.cpp
 CMakeFiles/super_diagram.dir/src/file_handler.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/super_diagram.dir/src/file_handler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/file_handler.cpp.o -MF CMakeFiles/super_diagram.dir/src/file_handler.cpp.o.d -o CMakeFiles/super_diagram.dir/src/file_handler.cpp.o -c /home/nikhil/Github/Super_Diagram/src/file_handler.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/file_handler.cpp.o -MF CMakeFiles/super_diagram.dir/src/file_handler.cpp.o.d -o CMakeFiles/super_diagram.dir/src/file_handler.cpp.o -c /home/nikhil/Github/Super_Diagram/src/file_handler.cpp
 
 CMakeFiles/super_diagram.dir/src/file_handler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/file_handler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/file_handler.cpp > CMakeFiles/super_diagram.dir/src/file_handler.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/file_handler.cpp > CMakeFiles/super_diagram.dir/src/file_handler.cpp.i
 
 CMakeFiles/super_diagram.dir/src/file_handler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/file_handler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/file_handler.cpp -o CMakeFiles/super_diagram.dir/src/file_handler.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/file_handler.cpp -o CMakeFiles/super_diagram.dir/src/file_handler.cpp.s
 
 CMakeFiles/super_diagram.dir/src/score.cpp.o: CMakeFiles/super_diagram.dir/flags.make
 CMakeFiles/super_diagram.dir/src/score.cpp.o: /home/nikhil/Github/Super_Diagram/src/score.cpp
 CMakeFiles/super_diagram.dir/src/score.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/super_diagram.dir/src/score.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/score.cpp.o -MF CMakeFiles/super_diagram.dir/src/score.cpp.o.d -o CMakeFiles/super_diagram.dir/src/score.cpp.o -c /home/nikhil/Github/Super_Diagram/src/score.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/score.cpp.o -MF CMakeFiles/super_diagram.dir/src/score.cpp.o.d -o CMakeFiles/super_diagram.dir/src/score.cpp.o -c /home/nikhil/Github/Super_Diagram/src/score.cpp
 
 CMakeFiles/super_diagram.dir/src/score.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/score.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/score.cpp > CMakeFiles/super_diagram.dir/src/score.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/score.cpp > CMakeFiles/super_diagram.dir/src/score.cpp.i
 
 CMakeFiles/super_diagram.dir/src/score.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/score.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/score.cpp -o CMakeFiles/super_diagram.dir/src/score.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/score.cpp -o CMakeFiles/super_diagram.dir/src/score.cpp.s
 
-CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o: CMakeFiles/super_diagram.dir/flags.make
-CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o: /home/nikhil/Github/Super_Diagram/src/folder_selection.cpp
-CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o -MF CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o.d -o CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o -c /home/nikhil/Github/Super_Diagram/src/folder_selection.cpp
+CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o: CMakeFiles/super_diagram.dir/flags.make
+CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o: /home/nikhil/Github/Super_Diagram/src/FolderSelector.cpp
+CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o: CMakeFiles/super_diagram.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o -MF CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o.d -o CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o -c /home/nikhil/Github/Super_Diagram/src/FolderSelector.cpp
 
-CMakeFiles/super_diagram.dir/src/folder_selection.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/folder_selection.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/folder_selection.cpp > CMakeFiles/super_diagram.dir/src/folder_selection.cpp.i
+CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikhil/Github/Super_Diagram/src/FolderSelector.cpp > CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.i
 
-CMakeFiles/super_diagram.dir/src/folder_selection.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/folder_selection.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/folder_selection.cpp -o CMakeFiles/super_diagram.dir/src/folder_selection.cpp.s
+CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikhil/Github/Super_Diagram/src/FolderSelector.cpp -o CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.s
 
 # Object files for target super_diagram
 super_diagram_OBJECTS = \
@@ -205,7 +205,7 @@ super_diagram_OBJECTS = \
 "CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o" \
 "CMakeFiles/super_diagram.dir/src/file_handler.cpp.o" \
 "CMakeFiles/super_diagram.dir/src/score.cpp.o" \
-"CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o"
+"CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o"
 
 # External object files for target super_diagram
 super_diagram_EXTERNAL_OBJECTS =
@@ -218,7 +218,7 @@ super_diagram: CMakeFiles/super_diagram.dir/src/node_editor.cpp.o
 super_diagram: CMakeFiles/super_diagram.dir/src/imgui_helpers.cpp.o
 super_diagram: CMakeFiles/super_diagram.dir/src/file_handler.cpp.o
 super_diagram: CMakeFiles/super_diagram.dir/src/score.cpp.o
-super_diagram: CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o
+super_diagram: CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o
 super_diagram: CMakeFiles/super_diagram.dir/build.make
 super_diagram: external/glfw/src/libglfw3.a
 super_diagram: libglad.a

@@ -24,7 +24,7 @@
 #include "imgui_helpers.h"
 #include "file_handler.h"
 #include "score.h"
-#include "folder_selection.h"
+#include "FolderSelector.h"
 
 #include "stb/stb_image.h"
 
@@ -117,9 +117,8 @@ int main(int, char**)
     // Main menu
     bool quit = false;
 
-    FolderSelector fs = FolderSelector(600, 400, "/", window);
-    FolderSelector::enable_folder_select();
-    path = "/";
+    FolderSelector fs = FolderSelector(600, 400, "/home", window);
+    FolderSelector::enable();
 
     while (!glfwWindowShouldClose(window))
     {
@@ -189,7 +188,7 @@ int main(int, char**)
 
         */
 
-        FolderSelector::draw_folder_select(&path);
+        FolderSelector::render();
 
         imgui_render_frame(window, &display_w, &display_h);
     }

@@ -1,9 +1,10 @@
-#include "folder_selection.h"
+#include "FolderSelector.h"
 
 bool FolderSelector::enabled = false;
 int FolderSelector::window_width = 0;
 int FolderSelector::window_height = 0;
-std::string FolderSelector::selected_folder_path = "/"; // You need to define this even if it's a std::string
+std::string FolderSelector::selected_folder_path = ""; // You need to define this even if it's a std::string
+std::string FolderSelector::selected_folder_name = "";
 GLFWwindow* FolderSelector::window = nullptr; // Pointer to GLFWwindow
 
 FolderSelector::FolderSelector(int width, int height, std::string path, GLFWwindow * window) {
@@ -12,47 +13,54 @@ FolderSelector::FolderSelector(int width, int height, std::string path, GLFWwind
     window_width = width;
     window_height = height;
 
-    selected_folder_path = "path";
+    selected_folder_path = path;
+    selected_folder_name = "[no folder selected]";
 
     window = window;
 }
 
-void FolderSelector::enable_folder_select() {
+void FolderSelector::enable() {
     enabled = true;
 }
 
-void draw_directory(const std::filesystem::path& dir_path, std::string * selected) {
+void FolderSelector::draw_directory(std::string const& current_path) {
     try {
-        for(const auto& entry : std::filesystem::directory_iterator(dir_path)) {
+
+        if(ImGui::Selectable("..")) {
+            selected_folder_path = std::filesystem::path(current_path).parent_path().string();
+            selected_folder_name = std::filesystem::path(selected_folder_path).filename().string();
+        }
+
+        for(const auto& entry : std::filesystem::directory_iterator(std::filesystem::path(current_path))) {
             const auto& path = entry.path();
             std::string filename = path.filename().string();
 
             if(std::filesystem::is_directory(entry.status())) {
-                if(ImGui::TreeNode(filename.c_str())) {
-                    if(ImGui::IsItemToggledOpen()) {
-                        * selected = filename;
-                    }
-
-                    draw_directory(path, selected);
-                    ImGui::TreePop();
+                if(ImGui::Selectable(filename.c_str())) {
+                        selected_folder_name = filename;
+                        selected_folder_path = path.string();   
                 }
             } else {
-                ImGui::BulletText("%s", filename.c_str());
+                ImGui::Text("%s", filename.c_str());
             }
         }
 
     } catch(const std::filesystem::filesystem_error& e) {
         // TODO : add error window
 
-        ImGui::Begin("Error :(", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+        // ImGui::Begin("Error :(", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
 
-        ImGui::BulletText("Error: %s", e.what());
+        ImGui::PushTextWrapPos(ImGui::GetContentRegionAvail().x);
+        ImGui::Text("Error: %s", e.what());
+        selected_folder_name = "[no folder selected]";
 
-        ImGui::End();
+        ImGui::PopTextWrapPos();
+
+        // ImGui::End();
     }
 }
 
-void FolderSelector::draw_folder_select(std::string * path) {
+void FolderSelector::render() {
     if(enabled) {
         // TODO : update to make more accurate
         float menu_size = ImGui::GetFrameHeight();
@@ -65,13 +73,13 @@ void FolderSelector::draw_folder_select(std::string * path) {
 
         ImGui::Begin("Test", NULL, ImGuiWindowFlags_NoTitleBar);
 
-        ImGui::Text("/%s", selected_folder_path.c_str());
-        ImGui::Text(" ");
+        ImGui::Text("%s", selected_folder_path.c_str());
+        ImGui::Text("%s", selected_folder_name.c_str());
 
         ImGui::BeginChild("TreeScrollArea", ImVec2(0, 300), true, ImGuiWindowFlags_HorizontalScrollbar);
 
-        if((* path).size() != 0) {
-            draw_directory(std::filesystem::path(* path), &selected_folder_path);
+        if((selected_folder_path).size() != 0) {
+            draw_directory(selected_folder_path);
         } else {
             ImGui::BulletText("No directory selected.");
         }

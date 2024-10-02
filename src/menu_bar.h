@@ -22,7 +22,7 @@
 
 #include "imgui_helpers.h"
 
-#include "folder_selection.h"
+#include "FolderSelector.h"
 
 #include <iostream>
 

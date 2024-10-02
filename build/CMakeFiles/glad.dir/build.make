@@ -73,15 +73,15 @@ CMakeFiles/glad.dir/external/glad/src/glad.c.o: CMakeFiles/glad.dir/flags.make
 CMakeFiles/glad.dir/external/glad/src/glad.c.o: /home/nikhil/Github/Super_Diagram/external/glad/src/glad.c
 CMakeFiles/glad.dir/external/glad/src/glad.c.o: CMakeFiles/glad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikhil/Github/Super_Diagram/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/glad.dir/external/glad/src/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glad.dir/external/glad/src/glad.c.o -MF CMakeFiles/glad.dir/external/glad/src/glad.c.o.d -o CMakeFiles/glad.dir/external/glad/src/glad.c.o -c /home/nikhil/Github/Super_Diagram/external/glad/src/glad.c
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glad.dir/external/glad/src/glad.c.o -MF CMakeFiles/glad.dir/external/glad/src/glad.c.o.d -o CMakeFiles/glad.dir/external/glad/src/glad.c.o -c /home/nikhil/Github/Super_Diagram/external/glad/src/glad.c
 
 CMakeFiles/glad.dir/external/glad/src/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glad.dir/external/glad/src/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/nikhil/Github/Super_Diagram/external/glad/src/glad.c > CMakeFiles/glad.dir/external/glad/src/glad.c.i
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/nikhil/Github/Super_Diagram/external/glad/src/glad.c > CMakeFiles/glad.dir/external/glad/src/glad.c.i
 
 CMakeFiles/glad.dir/external/glad/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glad.dir/external/glad/src/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/nikhil/Github/Super_Diagram/external/glad/src/glad.c -o CMakeFiles/glad.dir/external/glad/src/glad.c.s
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/nikhil/Github/Super_Diagram/external/glad/src/glad.c -o CMakeFiles/glad.dir/external/glad/src/glad.c.s
 
 # Object files for target glad
 glad_OBJECTS = \

@@ -43,7 +43,7 @@ add_executable(super_diagram
     src/imgui_helpers.cpp
     src/file_handler.cpp
     src/score.cpp
-    src/folder_selection.cpp)
+    src/FolderSelector.cpp)
 
 # Link libraries
 target_link_libraries(super_diagram glfw glad imgui)

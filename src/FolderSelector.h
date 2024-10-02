@@ -1,5 +1,5 @@
-#ifndef FOLDER_SELECTION_H
-#define FOLDER_SELECTION_H
+#ifndef FOLDERSELECTOR_H
+#define FOLDERSELECTOR_H
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 
@@ -20,21 +20,22 @@ class FolderSelector {
         FolderSelector(int width, int height, std::string path, GLFWwindow * window);
         ~FolderSelector();
         
-        static void enable_folder_select();
-        static void draw_folder_select(std::string * path);
+        static void enable();
+        static void render();
+
+
     private:
-        // window size
+
+        static void draw_directory(std::string const& current_path);
+
         static int window_width;
         static int window_height;
 
-        // drawing? 
         static bool enabled;
 
-        // file system
         static std::string selected_folder_path;
         static std::string selected_folder_name;
 
-        // glfw
         static GLFWwindow * window;
 };
 

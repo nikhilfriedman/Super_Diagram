@@ -503,6 +503,30 @@ external/imnodes/imnodes.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/external/imnodes/imnodes.cpp.s
 .PHONY : external/imnodes/imnodes.cpp.s
 
+src/FolderSelector.o: src/FolderSelector.cpp.o
+.PHONY : src/FolderSelector.o
+
+# target to build an object file
+src/FolderSelector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o
+.PHONY : src/FolderSelector.cpp.o
+
+src/FolderSelector.i: src/FolderSelector.cpp.i
+.PHONY : src/FolderSelector.i
+
+# target to preprocess a source file
+src/FolderSelector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.i
+.PHONY : src/FolderSelector.cpp.i
+
+src/FolderSelector.s: src/FolderSelector.cpp.s
+.PHONY : src/FolderSelector.s
+
+# target to generate assembly for a file
+src/FolderSelector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.s
+.PHONY : src/FolderSelector.cpp.s
+
 src/code_preview.o: src/code_preview.cpp.o
 .PHONY : src/code_preview.o
 
@@ -574,30 +598,6 @@ src/file_handler.s: src/file_handler.cpp.s
 src/file_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/file_handler.cpp.s
 .PHONY : src/file_handler.cpp.s
-
-src/folder_selection.o: src/folder_selection.cpp.o
-.PHONY : src/folder_selection.o
-
-# target to build an object file
-src/folder_selection.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/folder_selection.cpp.o
-.PHONY : src/folder_selection.cpp.o
-
-src/folder_selection.i: src/folder_selection.cpp.i
-.PHONY : src/folder_selection.i
-
-# target to preprocess a source file
-src/folder_selection.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/folder_selection.cpp.i
-.PHONY : src/folder_selection.cpp.i
-
-src/folder_selection.s: src/folder_selection.cpp.s
-.PHONY : src/folder_selection.s
-
-# target to generate assembly for a file
-src/folder_selection.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/folder_selection.cpp.s
-.PHONY : src/folder_selection.cpp.s
 
 src/imgui_helpers.o: src/imgui_helpers.cpp.o
 .PHONY : src/imgui_helpers.o
@@ -770,6 +770,9 @@ help:
 	@echo "... external/imnodes/imnodes.o"
 	@echo "... external/imnodes/imnodes.i"
 	@echo "... external/imnodes/imnodes.s"
+	@echo "... src/FolderSelector.o"
+	@echo "... src/FolderSelector.i"
+	@echo "... src/FolderSelector.s"
 	@echo "... src/code_preview.o"
 	@echo "... src/code_preview.i"
 	@echo "... src/code_preview.s"
@@ -779,9 +782,6 @@ help:
 	@echo "... src/file_handler.o"
 	@echo "... src/file_handler.i"
 	@echo "... src/file_handler.s"
-	@echo "... src/folder_selection.o"
-	@echo "... src/folder_selection.i"
-	@echo "... src/folder_selection.s"
 	@echo "... src/imgui_helpers.o"
 	@echo "... src/imgui_helpers.i"
 	@echo "... src/imgui_helpers.s"

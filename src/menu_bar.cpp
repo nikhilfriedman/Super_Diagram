@@ -13,7 +13,7 @@ void draw_menu(IGFD::FileDialogConfig * config, bool * quit, Window_Neighbor_Inf
             wni -> no_resizing = true;
             // ImGuiFileDialog::Instance() -> OpenDialog("ChooseFolderKey", "Select project file", ".sd", * config);
 
-            FolderSelector::enable_folder_select();
+            FolderSelector::enable();
         }
 
         if(ImGui::MenuItem("Save", "Ctrl-S"))

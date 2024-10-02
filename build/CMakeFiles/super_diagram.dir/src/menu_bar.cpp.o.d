@@ -354,7 +354,7 @@ CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o: \
  /usr/include/c++/12/bits/fstream.tcc /usr/include/c++/12/functional \
  /home/nikhil/Github/Super_Diagram/src/imgui_helpers.h \
  /usr/include/c++/12/iostream \
- /home/nikhil/Github/Super_Diagram/src/folder_selection.h \
+ /home/nikhil/Github/Super_Diagram/src/FolderSelector.h \
  /usr/include/c++/12/filesystem /usr/include/c++/12/bits/fs_fwd.h \
  /usr/include/c++/12/bits/fs_path.h /usr/include/c++/12/iomanip \
  /usr/include/c++/12/bits/quoted_string.h /usr/include/c++/12/codecvt \
