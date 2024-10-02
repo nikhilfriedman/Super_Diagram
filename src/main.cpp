@@ -22,11 +22,11 @@
 #include "code_preview.h"
 #include "node_editor.h"
 #include "imgui_helpers.h"
-#include "score.h"
 
 #include "FolderSelector.h"
 #include "MenuBar.h"
 #include "FileExplorer.h"
+#include "Score.h"
 
 #include "stb/stb_image.h"
 
@@ -126,12 +126,14 @@ int main(int, char**)
 
     // Main menu
 
-    FolderSelector fs = FolderSelector(ImVec2(400, 600), ImVec2(0, 0), "/home", window);
+    FolderSelector fs = FolderSelector(ImVec2(600, 400), ImVec2(0, 0), "/home", window);
     FolderSelector::enable();
 
     MenuBar mb = MenuBar(ImVec2(0,0), ImVec2(0, 0), window);
 
     FileExplorer fw = FileExplorer(ImVec2(0, 0), ImVec2(0, 0), window);
+
+    Score sc = Score(ImVec2(0, 0), ImVec2(0, 0), window);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -141,9 +143,13 @@ int main(int, char**)
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
 
-        vert_sep_1  = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
-        vert_sep_2  = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
-        horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
+        // vert_sep_1  = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
+        // vert_sep_2  = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
+        // horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
+
+        vert_sep_1 = 400;
+        vert_sep_2 = 1000;
+        horiz_sep_1 = 400;
 
         /*
 
@@ -213,6 +219,8 @@ int main(int, char**)
         FolderSelector::render();
 
         FileExplorer::render();
+
+        Score::render();
 
         imgui_render_frame(window, &display_w, &display_h);
     }

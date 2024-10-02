@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o.d"
   "CMakeFiles/super_diagram.dir/src/MenuBar.cpp.o"
   "CMakeFiles/super_diagram.dir/src/MenuBar.cpp.o.d"
+  "CMakeFiles/super_diagram.dir/src/Score.cpp.o"
+  "CMakeFiles/super_diagram.dir/src/Score.cpp.o.d"
   "CMakeFiles/super_diagram.dir/src/code_preview.cpp.o"
   "CMakeFiles/super_diagram.dir/src/code_preview.cpp.o.d"
   "CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o"
@@ -17,8 +19,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/super_diagram.dir/src/menu_bar.cpp.o.d"
   "CMakeFiles/super_diagram.dir/src/node_editor.cpp.o"
   "CMakeFiles/super_diagram.dir/src/node_editor.cpp.o.d"
-  "CMakeFiles/super_diagram.dir/src/score.cpp.o"
-  "CMakeFiles/super_diagram.dir/src/score.cpp.o.d"
   "super_diagram"
   "super_diagram.pdb"
 )

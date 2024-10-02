@@ -575,6 +575,30 @@ src/MenuBar.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/MenuBar.cpp.s
 .PHONY : src/MenuBar.cpp.s
 
+src/Score.o: src/Score.cpp.o
+.PHONY : src/Score.o
+
+# target to build an object file
+src/Score.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/Score.cpp.o
+.PHONY : src/Score.cpp.o
+
+src/Score.i: src/Score.cpp.i
+.PHONY : src/Score.i
+
+# target to preprocess a source file
+src/Score.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/Score.cpp.i
+.PHONY : src/Score.cpp.i
+
+src/Score.s: src/Score.cpp.s
+.PHONY : src/Score.s
+
+# target to generate assembly for a file
+src/Score.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/Score.cpp.s
+.PHONY : src/Score.cpp.s
+
 src/code_preview.o: src/code_preview.cpp.o
 .PHONY : src/code_preview.o
 
@@ -719,30 +743,6 @@ src/node_editor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/node_editor.cpp.s
 .PHONY : src/node_editor.cpp.s
 
-src/score.o: src/score.cpp.o
-.PHONY : src/score.o
-
-# target to build an object file
-src/score.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/score.cpp.o
-.PHONY : src/score.cpp.o
-
-src/score.i: src/score.cpp.i
-.PHONY : src/score.i
-
-# target to preprocess a source file
-src/score.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/score.cpp.i
-.PHONY : src/score.cpp.i
-
-src/score.s: src/score.cpp.s
-.PHONY : src/score.s
-
-# target to generate assembly for a file
-src/score.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/score.cpp.s
-.PHONY : src/score.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -803,6 +803,9 @@ help:
 	@echo "... src/MenuBar.o"
 	@echo "... src/MenuBar.i"
 	@echo "... src/MenuBar.s"
+	@echo "... src/Score.o"
+	@echo "... src/Score.i"
+	@echo "... src/Score.s"
 	@echo "... src/code_preview.o"
 	@echo "... src/code_preview.i"
 	@echo "... src/code_preview.s"
@@ -821,9 +824,6 @@ help:
 	@echo "... src/node_editor.o"
 	@echo "... src/node_editor.i"
 	@echo "... src/node_editor.s"
-	@echo "... src/score.o"
-	@echo "... src/score.i"
-	@echo "... src/score.s"
 .PHONY : help
 
 
