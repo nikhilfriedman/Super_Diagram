@@ -141,9 +141,9 @@ int main(int, char**)
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
 
-        vert_sep_1  = ImClamp(wni.vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
-        vert_sep_2  = ImClamp(wni.vert_sep_2, wni.vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
-        horiz_sep_1 = ImClamp(wni.horiz_sep_1, wni.pos_menu_bar.y + wni.size_menu_bar.y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
+        vert_sep_1  = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
+        vert_sep_2  = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
+        horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
 
         /*
 
