@@ -362,6 +362,7 @@ CMakeFiles/super_diagram.dir/src/main.cpp.o: \
  /home/nikhil/Github/Super_Diagram/src/file_explorer.h \
  /home/nikhil/Github/Super_Diagram/src/code_preview.h \
  /home/nikhil/Github/Super_Diagram/src/node_editor.h \
- /home/nikhil/Github/Super_Diagram/src/file_handler.h \
  /home/nikhil/Github/Super_Diagram/src/score.h \
+ /home/nikhil/Github/Super_Diagram/src/MenuBar.h \
+ /home/nikhil/Github/Super_Diagram/src/FileExplorer.h \
  /home/nikhil/Github/Super_Diagram/external/ImGuiFileDialog/stb/stb_image.h

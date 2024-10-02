@@ -86,11 +86,6 @@
 },
 {
   "directory": "/home/nikhil/Github/Super_Diagram/build",
-  "command": "/usr/bin/g++  -I/home/nikhil/Github/Super_Diagram/external/glfw/include -I/home/nikhil/Github/Super_Diagram/external/glad/include -I/home/nikhil/Github/Super_Diagram/external/imnodes -I/home/nikhil/Github/Super_Diagram/external/ImGuiColorTextEdit -I/home/nikhil/Github/Super_Diagram/external/ImGuiFileDialog -I/home/nikhil/Github/Super_Diagram/external/imgui -I/home/nikhil/Github/Super_Diagram/external/imgui/backends -g -std=gnu++17 -o CMakeFiles/super_diagram.dir/src/file_handler.cpp.o -c /home/nikhil/Github/Super_Diagram/src/file_handler.cpp",
-  "file": "/home/nikhil/Github/Super_Diagram/src/file_handler.cpp"
-},
-{
-  "directory": "/home/nikhil/Github/Super_Diagram/build",
   "command": "/usr/bin/g++  -I/home/nikhil/Github/Super_Diagram/external/glfw/include -I/home/nikhil/Github/Super_Diagram/external/glad/include -I/home/nikhil/Github/Super_Diagram/external/imnodes -I/home/nikhil/Github/Super_Diagram/external/ImGuiColorTextEdit -I/home/nikhil/Github/Super_Diagram/external/ImGuiFileDialog -I/home/nikhil/Github/Super_Diagram/external/imgui -I/home/nikhil/Github/Super_Diagram/external/imgui/backends -g -std=gnu++17 -o CMakeFiles/super_diagram.dir/src/score.cpp.o -c /home/nikhil/Github/Super_Diagram/src/score.cpp",
   "file": "/home/nikhil/Github/Super_Diagram/src/score.cpp"
 },
@@ -98,6 +93,16 @@
   "directory": "/home/nikhil/Github/Super_Diagram/build",
   "command": "/usr/bin/g++  -I/home/nikhil/Github/Super_Diagram/external/glfw/include -I/home/nikhil/Github/Super_Diagram/external/glad/include -I/home/nikhil/Github/Super_Diagram/external/imnodes -I/home/nikhil/Github/Super_Diagram/external/ImGuiColorTextEdit -I/home/nikhil/Github/Super_Diagram/external/ImGuiFileDialog -I/home/nikhil/Github/Super_Diagram/external/imgui -I/home/nikhil/Github/Super_Diagram/external/imgui/backends -g -std=gnu++17 -o CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o -c /home/nikhil/Github/Super_Diagram/src/FolderSelector.cpp",
   "file": "/home/nikhil/Github/Super_Diagram/src/FolderSelector.cpp"
+},
+{
+  "directory": "/home/nikhil/Github/Super_Diagram/build",
+  "command": "/usr/bin/g++  -I/home/nikhil/Github/Super_Diagram/external/glfw/include -I/home/nikhil/Github/Super_Diagram/external/glad/include -I/home/nikhil/Github/Super_Diagram/external/imnodes -I/home/nikhil/Github/Super_Diagram/external/ImGuiColorTextEdit -I/home/nikhil/Github/Super_Diagram/external/ImGuiFileDialog -I/home/nikhil/Github/Super_Diagram/external/imgui -I/home/nikhil/Github/Super_Diagram/external/imgui/backends -g -std=gnu++17 -o CMakeFiles/super_diagram.dir/src/MenuBar.cpp.o -c /home/nikhil/Github/Super_Diagram/src/MenuBar.cpp",
+  "file": "/home/nikhil/Github/Super_Diagram/src/MenuBar.cpp"
+},
+{
+  "directory": "/home/nikhil/Github/Super_Diagram/build",
+  "command": "/usr/bin/g++  -I/home/nikhil/Github/Super_Diagram/external/glfw/include -I/home/nikhil/Github/Super_Diagram/external/glad/include -I/home/nikhil/Github/Super_Diagram/external/imnodes -I/home/nikhil/Github/Super_Diagram/external/ImGuiColorTextEdit -I/home/nikhil/Github/Super_Diagram/external/ImGuiFileDialog -I/home/nikhil/Github/Super_Diagram/external/imgui -I/home/nikhil/Github/Super_Diagram/external/imgui/backends -g -std=gnu++17 -o CMakeFiles/super_diagram.dir/src/FileExplorer.cpp.o -c /home/nikhil/Github/Super_Diagram/src/FileExplorer.cpp",
+  "file": "/home/nikhil/Github/Super_Diagram/src/FileExplorer.cpp"
 },
 {
   "directory": "/home/nikhil/Github/Super_Diagram/build/external/glfw/src",

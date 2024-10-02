@@ -22,11 +22,21 @@
 #include "code_preview.h"
 #include "node_editor.h"
 #include "imgui_helpers.h"
-#include "file_handler.h"
 #include "score.h"
+
 #include "FolderSelector.h"
+#include "MenuBar.h"
+#include "FileExplorer.h"
 
 #include "stb/stb_image.h"
+
+bool no_resizing    = false;
+bool quit           = false;
+
+float vert_sep_1    = 0.0;
+float vert_sep_2    = 0.0;
+float horiz_sep_1   = 0.0;
+
 
 void set_window_icon(GLFWwindow * window, const char * path)
 {
@@ -115,10 +125,13 @@ int main(int, char**)
     std::string file = "";
 
     // Main menu
-    bool quit = false;
 
-    FolderSelector fs = FolderSelector(600, 400, "/home", window);
+    FolderSelector fs = FolderSelector(ImVec2(400, 600), ImVec2(0, 0), "/home", window);
     FolderSelector::enable();
+
+    MenuBar mb = MenuBar(ImVec2(0,0), ImVec2(0, 0), window);
+
+    FileExplorer fw = FileExplorer(ImVec2(0, 0), ImVec2(0, 0), window);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -127,6 +140,10 @@ int main(int, char**)
         imgui_init_render();
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
+
+        vert_sep_1  = ImClamp(wni.vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
+        vert_sep_2  = ImClamp(wni.vert_sep_2, wni.vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
+        horiz_sep_1 = ImClamp(wni.horiz_sep_1, wni.pos_menu_bar.y + wni.size_menu_bar.y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
 
         /*
 
@@ -173,9 +190,9 @@ int main(int, char**)
         }
         else wni.horiz_sep_1 = ImGui::GetIO().DisplaySize.y;
 
-        draw_file_dialog(window, &wni, &path, &file);
+        // draw_file_dialog(window, &wni, &path, &file);
 
-        draw_menu(&config, &quit, &wni);
+        // draw_menu(&config, &quit, &wni);
 
         if(wni.viewing_file_explorer) draw_file_explorer(&wni, path);
 
@@ -188,7 +205,14 @@ int main(int, char**)
 
         */
 
+
+
+
+        MenuBar::render();
+
         FolderSelector::render();
+
+        FileExplorer::render();
 
         imgui_render_frame(window, &display_w, &display_h);
     }

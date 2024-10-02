@@ -1,29 +1,27 @@
 #include "FolderSelector.h"
 
 bool FolderSelector::enabled = false;
-int FolderSelector::window_width = 0;
-int FolderSelector::window_height = 0;
 std::string FolderSelector::selected_folder_path = ""; // You need to define this even if it's a std::string
 std::string FolderSelector::selected_folder_name = "";
 GLFWwindow* FolderSelector::window = nullptr; // Pointer to GLFWwindow
 
-FolderSelector::FolderSelector(int width, int height, std::string path, GLFWwindow * window) {
+ImVec2 FolderSelector::window_pos = ImVec2(0, 0);
+ImVec2 FolderSelector::window_size = ImVec2(0, 0);
+
+
+FolderSelector::FolderSelector(ImVec2 ws, ImVec2 wp, std::string path, GLFWwindow * w) {
     enabled = false;
 
-    window_width = width;
-    window_height = height;
+    window_size = ws;
+    window_pos = wp;
 
     selected_folder_path = path;
     selected_folder_name = "[no folder selected]";
 
-    window = window;
+    window = w;
 }
 
-void FolderSelector::enable() {
-    enabled = true;
-}
-
-void FolderSelector::draw_directory(std::string const& current_path) {
+void FolderSelector::drawDirectory(std::string const& current_path) {
     try {
 
         if(ImGui::Selectable("..")) {
@@ -46,17 +44,12 @@ void FolderSelector::draw_directory(std::string const& current_path) {
         }
 
     } catch(const std::filesystem::filesystem_error& e) {
-        // TODO : add error window
-
-        // ImGui::Begin("Error :(", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
-
         ImGui::PushTextWrapPos(ImGui::GetContentRegionAvail().x);
+
         ImGui::Text("Error: %s", e.what());
         selected_folder_name = "[no folder selected]";
-
+        
         ImGui::PopTextWrapPos();
-
-        // ImGui::End();
     }
 }
 
@@ -64,12 +57,10 @@ void FolderSelector::render() {
     if(enabled) {
         // TODO : update to make more accurate
         float menu_size = ImGui::GetFrameHeight();
-        ImVec2 window_size = ImGui::GetIO().DisplaySize;
+        ImVec2 display_size = ImGui::GetIO().DisplaySize;
 
-        ImGui::SetNextWindowPos(ImVec2((int) (window_size.x - window_width) >> 1, (int) (window_size.y - menu_size - window_height) >> 1), ImGuiCond_Appearing);
-        ImGui::SetNextWindowSize(ImVec2(window_width, window_height), ImGuiCond_Appearing);
-
-        // good stuff lol
+        ImGui::SetNextWindowPos(ImVec2((int) (display_size.x - window_size.x) >> 1, (int) (display_size.y - menu_size - window_size.y) >> 1), ImGuiCond_Appearing);
+        ImGui::SetNextWindowSize(ImVec2(window_size.x, window_size.y), ImGuiCond_Appearing);
 
         ImGui::Begin("Test", NULL, ImGuiWindowFlags_NoTitleBar);
 
@@ -79,7 +70,7 @@ void FolderSelector::render() {
         ImGui::BeginChild("TreeScrollArea", ImVec2(0, 300), true, ImGuiWindowFlags_HorizontalScrollbar);
 
         if((selected_folder_path).size() != 0) {
-            draw_directory(selected_folder_path);
+            drawDirectory(selected_folder_path);
         } else {
             ImGui::BulletText("No directory selected.");
         }
@@ -90,8 +81,39 @@ void FolderSelector::render() {
             enabled = false;
         }
 
+        window_pos  = ImGui::GetWindowPos();
+        window_size = ImGui::GetWindowSize();
+
         ImGui::End();
     }
+}
+
+void FolderSelector::enable() {
+    enabled = true;
+}
+
+void FolderSelector::disable() {
+    enabled = false;
+}
+
+std::string FolderSelector::getFolderPath() {
+    return selected_folder_path;
+}
+
+std::string FolderSelector::getFolderName() {
+    return selected_folder_name;
+}
+
+bool FolderSelector::isEnabled() {
+    return enabled;
+}
+
+ImVec2 FolderSelector::getWindowSize() {
+    return window_size;
+}
+
+ImVec2 FolderSelector::getWindowPos() {
+    return window_pos;
 }
 
 FolderSelector::~FolderSelector() {

@@ -503,6 +503,30 @@ external/imnodes/imnodes.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/imgui.dir/build.make CMakeFiles/imgui.dir/external/imnodes/imnodes.cpp.s
 .PHONY : external/imnodes/imnodes.cpp.s
 
+src/FileExplorer.o: src/FileExplorer.cpp.o
+.PHONY : src/FileExplorer.o
+
+# target to build an object file
+src/FileExplorer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/FileExplorer.cpp.o
+.PHONY : src/FileExplorer.cpp.o
+
+src/FileExplorer.i: src/FileExplorer.cpp.i
+.PHONY : src/FileExplorer.i
+
+# target to preprocess a source file
+src/FileExplorer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/FileExplorer.cpp.i
+.PHONY : src/FileExplorer.cpp.i
+
+src/FileExplorer.s: src/FileExplorer.cpp.s
+.PHONY : src/FileExplorer.s
+
+# target to generate assembly for a file
+src/FileExplorer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/FileExplorer.cpp.s
+.PHONY : src/FileExplorer.cpp.s
+
 src/FolderSelector.o: src/FolderSelector.cpp.o
 .PHONY : src/FolderSelector.o
 
@@ -526,6 +550,30 @@ src/FolderSelector.s: src/FolderSelector.cpp.s
 src/FolderSelector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.s
 .PHONY : src/FolderSelector.cpp.s
+
+src/MenuBar.o: src/MenuBar.cpp.o
+.PHONY : src/MenuBar.o
+
+# target to build an object file
+src/MenuBar.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/MenuBar.cpp.o
+.PHONY : src/MenuBar.cpp.o
+
+src/MenuBar.i: src/MenuBar.cpp.i
+.PHONY : src/MenuBar.i
+
+# target to preprocess a source file
+src/MenuBar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/MenuBar.cpp.i
+.PHONY : src/MenuBar.cpp.i
+
+src/MenuBar.s: src/MenuBar.cpp.s
+.PHONY : src/MenuBar.s
+
+# target to generate assembly for a file
+src/MenuBar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/MenuBar.cpp.s
+.PHONY : src/MenuBar.cpp.s
 
 src/code_preview.o: src/code_preview.cpp.o
 .PHONY : src/code_preview.o
@@ -574,30 +622,6 @@ src/file_explorer.s: src/file_explorer.cpp.s
 src/file_explorer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/file_explorer.cpp.s
 .PHONY : src/file_explorer.cpp.s
-
-src/file_handler.o: src/file_handler.cpp.o
-.PHONY : src/file_handler.o
-
-# target to build an object file
-src/file_handler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/file_handler.cpp.o
-.PHONY : src/file_handler.cpp.o
-
-src/file_handler.i: src/file_handler.cpp.i
-.PHONY : src/file_handler.i
-
-# target to preprocess a source file
-src/file_handler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/file_handler.cpp.i
-.PHONY : src/file_handler.cpp.i
-
-src/file_handler.s: src/file_handler.cpp.s
-.PHONY : src/file_handler.s
-
-# target to generate assembly for a file
-src/file_handler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/file_handler.cpp.s
-.PHONY : src/file_handler.cpp.s
 
 src/imgui_helpers.o: src/imgui_helpers.cpp.o
 .PHONY : src/imgui_helpers.o
@@ -770,18 +794,21 @@ help:
 	@echo "... external/imnodes/imnodes.o"
 	@echo "... external/imnodes/imnodes.i"
 	@echo "... external/imnodes/imnodes.s"
+	@echo "... src/FileExplorer.o"
+	@echo "... src/FileExplorer.i"
+	@echo "... src/FileExplorer.s"
 	@echo "... src/FolderSelector.o"
 	@echo "... src/FolderSelector.i"
 	@echo "... src/FolderSelector.s"
+	@echo "... src/MenuBar.o"
+	@echo "... src/MenuBar.i"
+	@echo "... src/MenuBar.s"
 	@echo "... src/code_preview.o"
 	@echo "... src/code_preview.i"
 	@echo "... src/code_preview.s"
 	@echo "... src/file_explorer.o"
 	@echo "... src/file_explorer.i"
 	@echo "... src/file_explorer.s"
-	@echo "... src/file_handler.o"
-	@echo "... src/file_handler.i"
-	@echo "... src/file_handler.s"
 	@echo "... src/imgui_helpers.o"
 	@echo "... src/imgui_helpers.i"
 	@echo "... src/imgui_helpers.s"

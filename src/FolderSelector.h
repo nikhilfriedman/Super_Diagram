@@ -17,26 +17,35 @@
 
 class FolderSelector {
     public:
-        FolderSelector(int width, int height, std::string path, GLFWwindow * window);
+        FolderSelector(ImVec2 window_size, ImVec2 window_pos, std::string path, GLFWwindow * window);
         ~FolderSelector();
         
-        static void enable();
         static void render();
+        static void enable();
+        static void disable();
 
+        static std::string getFolderPath();
+        static std::string getFolderName();
+
+        static bool isEnabled();
+
+        static ImVec2 getWindowSize();
+        static ImVec2 getWindowPos();
 
     private:
+        static void drawDirectory(std::string const& current_path);
 
-        static void draw_directory(std::string const& current_path);
 
-        static int window_width;
-        static int window_height;
+        static GLFWwindow * window;
+
+        static ImVec2 window_size;
+        static ImVec2 window_pos;
 
         static bool enabled;
 
         static std::string selected_folder_path;
         static std::string selected_folder_name;
 
-        static GLFWwindow * window;
 };
 
 #endif

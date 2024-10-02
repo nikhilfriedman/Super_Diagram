@@ -41,9 +41,10 @@ add_executable(super_diagram
     src/code_preview.cpp
     src/node_editor.cpp
     src/imgui_helpers.cpp
-    src/file_handler.cpp
     src/score.cpp
-    src/FolderSelector.cpp)
+    src/FolderSelector.cpp
+    src/MenuBar.cpp
+    src/FileExplorer.cpp)
 
 # Link libraries
 target_link_libraries(super_diagram glfw glad imgui)
