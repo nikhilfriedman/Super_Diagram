@@ -1,6 +1,7 @@
-CMakeFiles/super_diagram.dir/src/main.cpp.o: \
- /home/nikhil/Github/Super_Diagram/src/main.cpp \
+CMakeFiles/super_diagram.dir/src/NodeEditor.cpp.o: \
+ /home/nikhil/Github/Super_Diagram/src/NodeEditor.cpp \
  /usr/include/stdc-predef.h \
+ /home/nikhil/Github/Super_Diagram/src/NodeEditor.h \
  /home/nikhil/Github/Super_Diagram/external/glad/include/glad/glad.h \
  /home/nikhil/Github/Super_Diagram/external/glad/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
@@ -351,18 +352,10 @@ CMakeFiles/super_diagram.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
  /usr/include/c++/12/bits/fstream.tcc /usr/include/c++/12/functional \
  /usr/include/c++/12/iostream \
- /home/nikhil/Github/Super_Diagram/src/menu_bar.h \
  /home/nikhil/Github/Super_Diagram/src/imgui_helpers.h \
+ /home/nikhil/Github/Super_Diagram/src/MenuBar.h \
  /home/nikhil/Github/Super_Diagram/src/FolderSelector.h \
  /usr/include/c++/12/filesystem /usr/include/c++/12/bits/fs_fwd.h \
  /usr/include/c++/12/bits/fs_path.h /usr/include/c++/12/iomanip \
  /usr/include/c++/12/bits/quoted_string.h /usr/include/c++/12/codecvt \
- /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h \
- /home/nikhil/Github/Super_Diagram/src/file_explorer.h \
- /home/nikhil/Github/Super_Diagram/src/code_preview.h \
- /home/nikhil/Github/Super_Diagram/src/node_editor.h \
- /home/nikhil/Github/Super_Diagram/src/MenuBar.h \
- /home/nikhil/Github/Super_Diagram/src/FileExplorer.h \
- /home/nikhil/Github/Super_Diagram/src/Score.h \
- /home/nikhil/Github/Super_Diagram/src/NodeEditor.h \
- /home/nikhil/Github/Super_Diagram/external/ImGuiFileDialog/stb/stb_image.h
+ /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h

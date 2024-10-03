@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikhil/Github/Super_Diagram/src/FileExplorer.cpp" "CMakeFiles/super_diagram.dir/src/FileExplorer.cpp.o" "gcc" "CMakeFiles/super_diagram.dir/src/FileExplorer.cpp.o.d"
   "/home/nikhil/Github/Super_Diagram/src/FolderSelector.cpp" "CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o" "gcc" "CMakeFiles/super_diagram.dir/src/FolderSelector.cpp.o.d"
   "/home/nikhil/Github/Super_Diagram/src/MenuBar.cpp" "CMakeFiles/super_diagram.dir/src/MenuBar.cpp.o" "gcc" "CMakeFiles/super_diagram.dir/src/MenuBar.cpp.o.d"
+  "/home/nikhil/Github/Super_Diagram/src/NodeEditor.cpp" "CMakeFiles/super_diagram.dir/src/NodeEditor.cpp.o" "gcc" "CMakeFiles/super_diagram.dir/src/NodeEditor.cpp.o.d"
   "/home/nikhil/Github/Super_Diagram/src/Score.cpp" "CMakeFiles/super_diagram.dir/src/Score.cpp.o" "gcc" "CMakeFiles/super_diagram.dir/src/Score.cpp.o.d"
   "/home/nikhil/Github/Super_Diagram/src/code_preview.cpp" "CMakeFiles/super_diagram.dir/src/code_preview.cpp.o" "gcc" "CMakeFiles/super_diagram.dir/src/code_preview.cpp.o.d"
   "/home/nikhil/Github/Super_Diagram/src/file_explorer.cpp" "CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o" "gcc" "CMakeFiles/super_diagram.dir/src/file_explorer.cpp.o.d"
