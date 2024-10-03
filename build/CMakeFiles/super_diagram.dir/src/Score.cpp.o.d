@@ -204,7 +204,6 @@ CMakeFiles/super_diagram.dir/src/Score.cpp.o: \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/amxbf16intrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/prfchwintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/keylockerintrin.h \
- /home/nikhil/Github/Super_Diagram/external/imgui/imstb_textedit.h \
  /home/nikhil/Github/Super_Diagram/external/ImGuiColorTextEdit/TextEditor.h \
  /usr/include/c++/12/string /usr/include/c++/12/bits/stringfwd.h \
  /usr/include/c++/12/bits/memoryfwd.h \
