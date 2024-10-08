@@ -14,6 +14,8 @@ bool tmp1 = true;
 bool tmp2 = true;
 bool tmp3 = true;
 
+bool open_about = false;
+
 MenuBar::MenuBar(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
     window_size = ws;
     window_pos = wp;
@@ -24,8 +26,6 @@ MenuBar::MenuBar(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
 
 void MenuBar::render() {
     ImGui::BeginMainMenuBar();
-
-    bool open_about_popup = false;
 
     if(ImGui::BeginMenu("File")) {
         if(ImGui::MenuItem("Open", "Ctrl-O")) {
@@ -82,38 +82,37 @@ void MenuBar::render() {
 
     if(ImGui::BeginMenu("Help")) {
         if(ImGui::MenuItem("About")) {
-            open_about_popup = true;
+            open_about = true;
         }
 
         ImGui::EndMenu();
     }
 
-    // if(open_about_popup)
-    // {
-    //     ImGui::OpenPopup("About superdiagram");
-    //     open_about_popup = false;
-    // }
+    if(open_about) {
+        ImGui::OpenPopup("About superdiagram");
+        open_about = false;
+    }
 
-    // float menu_size = ImGui::GetFrameHeight();
-    // ImVec2 window_size = ImGui::GetIO().DisplaySize;
 
-    // ImGui::SetNextWindowPos(ImVec2((int) (window_size.x - FILE_DIALOG_WINDOW_WIDTH) >> 1, (int) (window_size.y - menu_size - FILE_DIALOG_WINDOW_HEIGHT) >> 1), ImGuiCond_Appearing);
-    // ImGui::SetNextWindowSize(ImVec2(FILE_DIALOG_WINDOW_WIDTH, FILE_DIALOG_WINDOW_HEIGHT), ImGuiCond_Appearing);
+    ImGui::SetNextWindowPos(ImVec2((int) (ImGui::GetIO().DisplaySize.x - 400) >> 1, 
+        (int) (ImGui::GetIO().DisplaySize.y - MenuBar::getWindowSize().y - 400) >> 1), ImGuiCond_Appearing);
+    ImGui::SetNextWindowSize(ImVec2(400, 
+        400), ImGuiCond_Appearing);
 
-    // if(ImGui::BeginPopupModal("About superdiagram"))
-    // {
-    //     no_resizing = true;
+    if(ImGui::BeginPopupModal("About superdiagram"))
+    {
+        no_resizing = true;
 
-    //     ImGui::Text("Some text about the program.");
+        ImGui::Text("Some text about the program.");
 
-    //     if(ImGui::Button("Close"))
-    //     {
-    //         ImGui::CloseCurrentPopup();
+        if(ImGui::Button("Close"))
+        {
+            ImGui::CloseCurrentPopup();
 
-    //         no_resizing = false;
-    //     }
-    //     ImGui::EndPopup();
-    // }
+            no_resizing = false;
+        }
+        ImGui::EndPopup();
+    }
 
     ImGui::SameLine(ImGui::GetWindowWidth() - ImGui::CalcTextSize("superdiagram ").x - ImGui::GetStyle().ItemSpacing.x);
     ImGui::Text("superdiagram");
