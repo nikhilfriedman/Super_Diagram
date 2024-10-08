@@ -13,8 +13,6 @@
 
 #include "TextEditor.h"
 
-#include "ImGuiFileDialog.h"
-
 #include <iostream>
 
 #include "imgui_helpers.h"
@@ -56,7 +54,7 @@ int main(int, char**)
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit()) return EXIT_FAILURE;
 
-    // glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
+    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
 
     GLFWwindow* window = glfwCreateWindow(1280, 720, "[no file selected] - superdiagram", NULL, NULL);
     if (window == NULL) return EXIT_FAILURE;
@@ -73,34 +71,7 @@ int main(int, char**)
     int display_w, display_h = 0;
     int prev_display_w, prev_display_h = 0;
     ImVec2 window_pos = ImVec2(0,0);
-    Window_Neighbor_Info wni = {
-        false,          // resizing file explorer
-        false,          // resizing score
-        false,          // resizing node editor
 
-        false,          // no resizing
-
-        true,           // viewing file explorer
-        true,           // viewing score
-        true,           // viewing code preview
-
-        ImVec2(0,0),    // menu bar initial size
-        ImVec2(300,0),    // file explorer initial size
-        ImVec2(0,200),    // score initial size
-        ImVec2(600,0),    // node editor initial size
-        ImVec2(0,0),    // code preview initial size
-
-        ImVec2(0,0),    // menu bar initial position
-        ImVec2(0,0),    // file explorer initial position
-        ImVec2(0,0),    // score initial position
-        ImVec2(0,0),    // node editor initial position
-        ImVec2(0,0),     // code preview initial position
-
-        400.0f,
-        800.0f,
-        600.0f
-    };
-    
     // Text Editor
     TextEditor editor;
     const char * start_text = "No file selected.";
@@ -113,13 +84,6 @@ int main(int, char**)
 
     // File Explorer
     float curr_mouse_delta_x;
-
-    // File Dialog
-    IGFD::FileDialogConfig config;
-    config.flags |= ImGuiFileDialogFlags_Modal;
-    config.path = "";
-    std::string path = "";
-    std::string file = "";
 
     // Main menu
 
@@ -135,6 +99,14 @@ int main(int, char**)
 
     CodePreview cp = CodePreview(ImVec2(0, 0), ImVec2(0, 0), &editor, window);
 
+    // initialize some values
+    bool resize_horiz_sep_1 = false;
+    bool resize_vert_sep_1 = false;
+    bool resize_vert_sep_2 = false;
+    vert_sep_1 = 400;
+    vert_sep_2 = 1000;
+    horiz_sep_1 = 400;
+
     while (!glfwWindowShouldClose(window))
     {
         if(quit) break;
@@ -143,73 +115,48 @@ int main(int, char**)
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
 
-        // vert_sep_1  = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
-        // vert_sep_2  = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
-        // horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
+        vert_sep_1 = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
+        vert_sep_2 = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
+        horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
 
-        vert_sep_1 = 400;
-        vert_sep_2 = 1000;
-        horiz_sep_1 = 400;
-
-        /*
-
-        wni.vert_sep_1 = ImClamp(wni.vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
-        wni.vert_sep_2 = ImClamp(wni.vert_sep_2, wni.vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
-        wni.horiz_sep_1 = ImClamp(wni.horiz_sep_1, wni.pos_menu_bar.y + wni.size_menu_bar.y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
-
-        if(wni.viewing_file_explorer) 
+        if(FileExplorer::isEnabled()) 
         {
-            wni.vert_sep_1 = (wni.vert_sep_1 >= MIN_WH) ?
-                wni.vert_sep_1 : MIN_WH;
-            if (!wni.resize_horiz_sep_1 && !wni.resize_vert_sep_2 && !wni.no_resizing) update_vert_sep(&(wni.vert_sep_1),
-                wni.pos_menu_bar.y + wni.size_menu_bar.y,
+            vert_sep_1 = (vert_sep_1 >= MIN_WH) ? vert_sep_1 : MIN_WH;
+
+            if (!resize_horiz_sep_1 && !resize_vert_sep_2 && !no_resizing) update_vert_sep(&(vert_sep_1),
+                MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
                 ImGui::GetIO().DisplaySize.y,
-                &(wni.resize_vert_sep_1), 
+                &(resize_vert_sep_1), 
                 MIN_WH, 
-                wni.vert_sep_2 - MIN_WH);
+                vert_sep_2 - MIN_WH);
         }
-        else wni.vert_sep_1 = 0;
+        else vert_sep_1 = 0;
 
-        if(wni.viewing_code_preview) 
+        if(CodePreview::isEnabled()) 
         {
-            wni.vert_sep_2 = (wni.vert_sep_2 >= wni.vert_sep_1 + MIN_WH && wni.vert_sep_2 <= ImGui::GetIO().DisplaySize.x - MIN_WH) ? 
-                wni.vert_sep_2 : ImClamp((ImGui::GetIO().DisplaySize.x - wni.vert_sep_1) / 2, wni.vert_sep_1 + MIN_WH, ImGui::GetIO().DisplaySize.x - MIN_WH);
-            if(!wni.resize_horiz_sep_1 && !wni.resize_vert_sep_1 && !wni.no_resizing) update_vert_sep(&(wni.vert_sep_2), 
-                wni.pos_menu_bar.y + wni.size_menu_bar.y,
-                wni.pos_score.y,
-                &(wni.resize_vert_sep_2), 
-                wni.vert_sep_1 + MIN_WH, 
+            vert_sep_2 = (vert_sep_2 >= vert_sep_1 + MIN_WH && vert_sep_2 <= ImGui::GetIO().DisplaySize.x - MIN_WH) ? 
+                vert_sep_2 : ImClamp((ImGui::GetIO().DisplaySize.x - vert_sep_1) / 2, vert_sep_1 + MIN_WH, ImGui::GetIO().DisplaySize.x - MIN_WH);
+            if(!resize_horiz_sep_1 && !resize_vert_sep_1 && !no_resizing) update_vert_sep(&(vert_sep_2), 
+                MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
+                Score::getWindowPos().y,
+                &(resize_vert_sep_2), 
+                vert_sep_1 + MIN_WH, 
                 ImGui::GetIO().DisplaySize.x - MIN_WH);
         }
-        else wni.vert_sep_2 = ImGui::GetIO().DisplaySize.x;
+        else vert_sep_2 = ImGui::GetIO().DisplaySize.x;
 
-        if(wni.viewing_score) 
+        if(Score::isEnabled()) 
         {
-            wni.horiz_sep_1 = (wni.horiz_sep_1 < ImGui::GetIO().DisplaySize.y - MIN_WH) ? 
-                wni.horiz_sep_1 : ImGui::GetIO().DisplaySize.y - MIN_WH;
-            if(!wni.resize_vert_sep_1 && !wni.resize_vert_sep_2 && !wni.no_resizing) update_horiz_sep(&(wni.horiz_sep_1),
-                wni.pos_score.x,
+            horiz_sep_1 = (horiz_sep_1 < ImGui::GetIO().DisplaySize.y - MIN_WH) ? 
+                horiz_sep_1 : ImGui::GetIO().DisplaySize.y - MIN_WH;
+            if(!resize_vert_sep_1 && !resize_vert_sep_2 && !no_resizing) update_horiz_sep(&(horiz_sep_1),
+                Score::getWindowPos().x,
                 ImGui::GetIO().DisplaySize.x,
-                &(wni.resize_horiz_sep_1),
-                wni.size_menu_bar.y + MIN_WH,
+                &(resize_horiz_sep_1),
+                MenuBar::getWindowSize().y + MIN_WH,
                 ImGui::GetIO().DisplaySize.y - MIN_WH);
         }
-        else wni.horiz_sep_1 = ImGui::GetIO().DisplaySize.y;
-
-        // draw_file_dialog(window, &wni, &path, &file);
-
-        // draw_menu(&config, &quit, &wni);
-
-        if(wni.viewing_file_explorer) draw_file_explorer(&wni, path);
-
-
-        if(wni.viewing_score) draw_score(&wni);
-
-        draw_node_editor(hardcoded_node_id, &wni);
-
-        if(wni.viewing_code_preview) draw_text_editor(&editor, &wni);
-
-        */
+        else horiz_sep_1 = ImGui::GetIO().DisplaySize.y;
 
         MenuBar::render();
 

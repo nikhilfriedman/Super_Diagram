@@ -36,7 +36,6 @@ include_directories(external/imgui/backends)
 # add_executable(super_diagram WIN32 src/main.cpp)
 add_executable(super_diagram 
     src/main.cpp 
-    src/code_preview.cpp
     src/imgui_helpers.cpp
     src/FolderSelector.cpp
     src/MenuBar.cpp
