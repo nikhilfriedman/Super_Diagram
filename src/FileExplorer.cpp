@@ -20,21 +20,29 @@ FileExplorer::FileExplorer(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
 }
 
 void drawDirectory(const std::filesystem::path& path_to_display) {
-    for(const auto& entry : std::filesystem::directory_iterator(path_to_display))
-    {
-        const auto& path = entry.path();
-        std::string filename = path.filename().string();
-
-        if(std::filesystem::is_directory(entry.status()))
+    try {
+        for(const auto& entry : std::filesystem::directory_iterator(path_to_display))
         {
-            if(ImGui::TreeNode(filename.c_str()))
+            const auto& path = entry.path();
+            std::string filename = path.filename().string();
+
+            if(std::filesystem::is_directory(entry.status()))
             {
-                drawDirectory(path);
-                ImGui::TreePop();
+                if(ImGui::TreeNode(filename.c_str()))
+                {
+                    drawDirectory(path);
+                    ImGui::TreePop();
+                }
+            } else {
+                ImGui::BulletText("%s", filename.c_str());
             }
-        } else {
-            ImGui::BulletText("%s", filename.c_str());
         }
+    } catch(const std::filesystem::filesystem_error& e) {
+        ImGui::PushTextWrapPos(ImGui::GetContentRegionAvail().x);
+
+        ImGui::Text("Error: %s", e.what());
+        
+        ImGui::PopTextWrapPos();
     }
 }
 

@@ -21,6 +21,30 @@
 
 #include "imgui_helpers.h"
 
+#include "MenuBar.h"
 
+class NodeEditor {
+    public:
+        NodeEditor(ImVec2 window_size, ImVec2 window_pos, GLFWwindow * window);
+        ~NodeEditor();
+
+        static void render();
+        static void enable();
+        static void disable();
+
+        static bool isEnabled();
+
+        static ImVec2 getWindowSize();
+        static ImVec2 getWindowPos();
+
+    private:
+        static GLFWwindow * window;
+
+        static ImVec2 window_size;
+        static ImVec2 window_pos;
+
+        static bool enabled;
+
+};
 
 #endif

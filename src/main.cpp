@@ -27,6 +27,7 @@
 #include "MenuBar.h"
 #include "FileExplorer.h"
 #include "Score.h"
+#include "NodeEditor.h"
 
 #include "stb/stb_image.h"
 
@@ -127,13 +128,14 @@ int main(int, char**)
     // Main menu
 
     FolderSelector fs = FolderSelector(ImVec2(600, 400), ImVec2(0, 0), "/home", window);
-    FolderSelector::enable();
 
     MenuBar mb = MenuBar(ImVec2(0,0), ImVec2(0, 0), window);
 
     FileExplorer fw = FileExplorer(ImVec2(0, 0), ImVec2(0, 0), window);
 
     Score sc = Score(ImVec2(0, 0), ImVec2(0, 0), window);
+
+    NodeEditor ne = NodeEditor(ImVec2(0, 0), ImVec2(0, 0), window);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -221,6 +223,8 @@ int main(int, char**)
         FileExplorer::render();
 
         Score::render();
+
+        NodeEditor::render();
 
         imgui_render_frame(window, &display_w, &display_h);
     }

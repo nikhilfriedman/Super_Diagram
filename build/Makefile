@@ -575,6 +575,30 @@ src/MenuBar.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/MenuBar.cpp.s
 .PHONY : src/MenuBar.cpp.s
 
+src/NodeEditor.o: src/NodeEditor.cpp.o
+.PHONY : src/NodeEditor.o
+
+# target to build an object file
+src/NodeEditor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/NodeEditor.cpp.o
+.PHONY : src/NodeEditor.cpp.o
+
+src/NodeEditor.i: src/NodeEditor.cpp.i
+.PHONY : src/NodeEditor.i
+
+# target to preprocess a source file
+src/NodeEditor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/NodeEditor.cpp.i
+.PHONY : src/NodeEditor.cpp.i
+
+src/NodeEditor.s: src/NodeEditor.cpp.s
+.PHONY : src/NodeEditor.s
+
+# target to generate assembly for a file
+src/NodeEditor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/super_diagram.dir/build.make CMakeFiles/super_diagram.dir/src/NodeEditor.cpp.s
+.PHONY : src/NodeEditor.cpp.s
+
 src/Score.o: src/Score.cpp.o
 .PHONY : src/Score.o
 
@@ -803,6 +827,9 @@ help:
 	@echo "... src/MenuBar.o"
 	@echo "... src/MenuBar.i"
 	@echo "... src/MenuBar.s"
+	@echo "... src/NodeEditor.o"
+	@echo "... src/NodeEditor.i"
+	@echo "... src/NodeEditor.s"
 	@echo "... src/Score.o"
 	@echo "... src/Score.i"
 	@echo "... src/Score.s"
