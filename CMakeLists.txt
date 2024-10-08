@@ -36,16 +36,14 @@ include_directories(external/imgui/backends)
 # add_executable(super_diagram WIN32 src/main.cpp)
 add_executable(super_diagram 
     src/main.cpp 
-    src/menu_bar.cpp 
-    src/file_explorer.cpp
     src/code_preview.cpp
-    src/node_editor.cpp
     src/imgui_helpers.cpp
     src/FolderSelector.cpp
     src/MenuBar.cpp
     src/FileExplorer.cpp
     src/Score.cpp
-    src/NodeEditor.cpp)
+    src/NodeEditor.cpp
+    src/CodePreview.cpp)
 
 # Link libraries
 target_link_libraries(super_diagram glfw glad imgui)

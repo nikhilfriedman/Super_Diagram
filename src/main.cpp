@@ -17,10 +17,6 @@
 
 #include <iostream>
 
-#include "menu_bar.h"
-#include "file_explorer.h"
-#include "code_preview.h"
-#include "node_editor.h"
 #include "imgui_helpers.h"
 
 #include "FolderSelector.h"
@@ -28,6 +24,7 @@
 #include "FileExplorer.h"
 #include "Score.h"
 #include "NodeEditor.h"
+#include "CodePreview.h"
 
 #include "stb/stb_image.h"
 
@@ -37,7 +34,6 @@ bool quit           = false;
 float vert_sep_1    = 0.0;
 float vert_sep_2    = 0.0;
 float horiz_sep_1   = 0.0;
-
 
 void set_window_icon(GLFWwindow * window, const char * path)
 {
@@ -137,6 +133,8 @@ int main(int, char**)
 
     NodeEditor ne = NodeEditor(ImVec2(0, 0), ImVec2(0, 0), window);
 
+    CodePreview cp = CodePreview(ImVec2(0, 0), ImVec2(0, 0), &editor, window);
+
     while (!glfwWindowShouldClose(window))
     {
         if(quit) break;
@@ -213,9 +211,6 @@ int main(int, char**)
 
         */
 
-
-
-
         MenuBar::render();
 
         FolderSelector::render();
@@ -225,6 +220,8 @@ int main(int, char**)
         Score::render();
 
         NodeEditor::render();
+
+        CodePreview::render();
 
         imgui_render_frame(window, &display_w, &display_h);
     }
