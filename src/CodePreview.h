@@ -15,8 +15,6 @@
 
 #include "TextEditor.h"
 
-#include "ImGuiFileDialog.h"
-
 #include "imgui_helpers.h"
 
 #include "MenuBar.h"

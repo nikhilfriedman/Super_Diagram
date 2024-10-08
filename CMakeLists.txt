@@ -13,7 +13,6 @@ include_directories(external/glad/include)
 
 include_directories(external/imnodes)
 include_directories(external/ImGuiColorTextEdit)
-include_directories(external/ImGuiFileDialog)
 
 # Add ImGui
 add_library(imgui
@@ -24,7 +23,6 @@ add_library(imgui
     external/imgui/imgui_widgets.cpp
     external/ImGuiColorTextEdit/TextEditor.cpp
     external/imnodes/imnodes.cpp
-    external/ImGuiFileDialog/ImGuiFileDialog.cpp
     external/imgui/backends/imgui_impl_glfw.cpp
     external/imgui/backends/imgui_impl_opengl3.cpp)
 include_directories(external/imgui)

@@ -24,8 +24,6 @@
 #include "NodeEditor.h"
 #include "CodePreview.h"
 
-#include "stb/stb_image.h"
-
 bool no_resizing    = false;
 bool quit           = false;
 
@@ -33,28 +31,13 @@ float vert_sep_1    = 0.0;
 float vert_sep_2    = 0.0;
 float horiz_sep_1   = 0.0;
 
-void set_window_icon(GLFWwindow * window, const char * path)
-{
-    GLFWimage images[1];
-
-    images[0].pixels = stbi_load(path, &images[0].width, &images[0].height, 0, 4);
-
-    if(images[0].pixels)
-    {
-        glfwSetWindowIcon(window, 1, images);
-        stbi_image_free(images[0].pixels);
-    } else {
-        std::cout << "Failed to load icon\n"; 
-    }
-}
-
 int main(int, char**)
 {
     // Setup graphics
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit()) return EXIT_FAILURE;
 
-    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
+    // glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
 
     GLFWwindow* window = glfwCreateWindow(1280, 720, "[no file selected] - superdiagram", NULL, NULL);
     if (window == NULL) return EXIT_FAILURE;
@@ -63,8 +46,6 @@ int main(int, char**)
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) return EXIT_FAILURE;
 
     ImGuiIO& io = create_imgui_context(window);
-
-    set_window_icon(window, "../external/textures/mushroom.png");
 
     // Window
     bool window_resize = false;

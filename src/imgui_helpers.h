@@ -15,8 +15,6 @@
 
 #include "TextEditor.h"
 
-#include "ImGuiFileDialog.h"
-
 #include <iostream>
 
 #define MIN_WH 150
