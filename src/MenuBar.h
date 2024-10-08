@@ -18,6 +18,9 @@
 #include "imgui_helpers.h"
 
 #include "FolderSelector.h"
+#include "FileExplorer.h"
+#include "Score.h"
+#include "CodePreview.h"
 
 #include <iostream>
 

@@ -10,6 +10,10 @@ GLFWwindow * MenuBar::window = nullptr;
 extern bool no_resizing;
 extern bool quit;
 
+bool tmp1 = true;
+bool tmp2 = true;
+bool tmp3 = true;
+
 MenuBar::MenuBar(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
     window_size = ws;
     window_pos = wp;
@@ -23,70 +27,61 @@ void MenuBar::render() {
 
     bool open_about_popup = false;
 
-    if(ImGui::BeginMenu("File"))
-    {
-        if(ImGui::MenuItem("Open", "Ctrl-O"))
-        {
+    if(ImGui::BeginMenu("File")) {
+        if(ImGui::MenuItem("Open", "Ctrl-O")) {
             no_resizing = true;
 
             FolderSelector::enable();
         }
 
-        if(ImGui::MenuItem("Save", "Ctrl-S"))
-        {
+        if(ImGui::MenuItem("Save", "Ctrl-S")) {
         }
 
-        if(ImGui::MenuItem("Quit", "Ctrl-Q"))
-        {
+        if(ImGui::MenuItem("Quit", "Ctrl-Q")) {
             quit = true;
         }
 
         ImGui::EndMenu();
     }
 
-    if(ImGui::BeginMenu("Edit"))
-    {
-        if(ImGui::MenuItem("Copy" , "Ctrl-C"))
-        {
+    if(ImGui::BeginMenu("Edit")) {
+        if(ImGui::MenuItem("Copy" , "Ctrl-C")) {
         }
 
-        if(ImGui::MenuItem("Paste", "Ctrl-V"))
-        {
+        if(ImGui::MenuItem("Paste", "Ctrl-V")) {
         }
 
         ImGui::EndMenu();
     }
 
-    // if(ImGui::BeginMenu("View"))
-    // {
-    //     if(ImGui::MenuItem("Explorer", NULL, &(wni -> viewing_file_explorer)))
-    //     {
-    //     }
+    if(ImGui::BeginMenu("View")) {
+        if(ImGui::MenuItem("Explorer", NULL, &tmp1)) {
+            if(FileExplorer::isEnabled())   FileExplorer::disable();
+            else                            FileExplorer::enable();
+        }
 
-    //     if(ImGui::MenuItem("Score", NULL, &(wni -> viewing_score)))
-    //     {
-    //     }
+        if(ImGui::MenuItem("Score", NULL, &tmp2)) {
+            if(Score::isEnabled())          Score::disable();
+            else                            Score::enable();
+        }
 
-    //     if(ImGui::MenuItem("Code Preview", NULL, &(wni -> viewing_code_preview)))
-    //     {
-    //     }
-
-    //     ImGui::EndMenu();
-    // }
-
-    if(ImGui::BeginMenu("Language"))
-    {
-        if(ImGui::MenuItem("C++"))
-        {
+        if(ImGui::MenuItem("Code Preview", NULL, &tmp3)) {
+            if(CodePreview::isEnabled())    CodePreview::disable();
+            else                            CodePreview::enable();
         }
 
         ImGui::EndMenu();
     }
 
-    if(ImGui::BeginMenu("Help"))
-    {
-        if(ImGui::MenuItem("About"))
-        {
+    if(ImGui::BeginMenu("Language")) {
+        if(ImGui::MenuItem("C++")) {
+        }
+
+        ImGui::EndMenu();
+    }
+
+    if(ImGui::BeginMenu("Help")) {
+        if(ImGui::MenuItem("About")) {
             open_about_popup = true;
         }
 

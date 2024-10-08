@@ -31,8 +31,7 @@ float vert_sep_1    = 0.0;
 float vert_sep_2    = 0.0;
 float horiz_sep_1   = 0.0;
 
-int main(int, char**)
-{
+int main(int, char**) {
     // Setup graphics
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit()) return EXIT_FAILURE;
@@ -100,8 +99,7 @@ int main(int, char**)
         vert_sep_2 = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
         horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
 
-        if(FileExplorer::isEnabled()) 
-        {
+        if(FileExplorer::isEnabled()) {
             vert_sep_1 = (vert_sep_1 >= MIN_WH) ? vert_sep_1 : MIN_WH;
 
             if (!resize_horiz_sep_1 && !resize_vert_sep_2 && !no_resizing) update_vert_sep(&(vert_sep_1),
@@ -113,10 +111,10 @@ int main(int, char**)
         }
         else vert_sep_1 = 0;
 
-        if(CodePreview::isEnabled()) 
-        {
+        if(CodePreview::isEnabled()) {
             vert_sep_2 = (vert_sep_2 >= vert_sep_1 + MIN_WH && vert_sep_2 <= ImGui::GetIO().DisplaySize.x - MIN_WH) ? 
                 vert_sep_2 : ImClamp((ImGui::GetIO().DisplaySize.x - vert_sep_1) / 2, vert_sep_1 + MIN_WH, ImGui::GetIO().DisplaySize.x - MIN_WH);
+                
             if(!resize_horiz_sep_1 && !resize_vert_sep_1 && !no_resizing) update_vert_sep(&(vert_sep_2), 
                 MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
                 Score::getWindowPos().y,
@@ -126,10 +124,10 @@ int main(int, char**)
         }
         else vert_sep_2 = ImGui::GetIO().DisplaySize.x;
 
-        if(Score::isEnabled()) 
-        {
+        if(Score::isEnabled()) {
             horiz_sep_1 = (horiz_sep_1 < ImGui::GetIO().DisplaySize.y - MIN_WH) ? 
                 horiz_sep_1 : ImGui::GetIO().DisplaySize.y - MIN_WH;
+
             if(!resize_vert_sep_1 && !resize_vert_sep_2 && !no_resizing) update_horiz_sep(&(horiz_sep_1),
                 Score::getWindowPos().x,
                 ImGui::GetIO().DisplaySize.x,
