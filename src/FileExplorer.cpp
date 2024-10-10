@@ -47,31 +47,32 @@ void drawDirectory(const std::filesystem::path& path_to_display) {
 }
 
 void FileExplorer::render() {
-    window_pos = ImVec2(0, MenuBar::getWindowSize().y);
-    window_size = ImVec2(vert_sep_1, 
-        ImGui::GetIO().DisplaySize.y - MenuBar::getWindowSize().y);
+    if(enabled) {
+        window_pos = ImVec2(0, MenuBar::getWindowSize().y);
+        window_size = ImVec2(vert_sep_1, 
+            ImGui::GetIO().DisplaySize.y - MenuBar::getWindowSize().y);
 
 
-    ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always);
-    ImGui::SetNextWindowSize(window_size, ImGuiCond_Always);
+        ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always);
+        ImGui::SetNextWindowSize(window_size, ImGuiCond_Always);
 
-    ImGui::Begin("Explorer", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
+        ImGui::Begin("Explorer", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
 
-    ImGui::Text("Explorer");
+        ImGui::Text("Explorer");
 
-    if(FolderSelector::getFolderPath().size() != 0)
-    {
-        drawDirectory(std::filesystem::path(FolderSelector::getFolderPath()));
-    } else {
-        ImGui::BulletText("No directory selected.");
+        if(FolderSelector::getFolderPath().size() != 0)
+        {
+            drawDirectory(std::filesystem::path(FolderSelector::getFolderPath()));
+        } else {
+            ImGui::BulletText("No directory selected.");
+        }
+
+
+        window_size = ImGui::GetWindowSize();
+        window_pos  = ImGui::GetWindowPos();
+
+        ImGui::End();
     }
-
-
-    window_size = ImGui::GetWindowSize();
-    window_pos  = ImGui::GetWindowPos();
-
-    ImGui::End();
-
 }
 
 void FileExplorer::enable() {

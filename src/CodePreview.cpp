@@ -23,23 +23,25 @@ CodePreview::CodePreview(ImVec2 ws, ImVec2 wp, TextEditor * e, GLFWwindow * w) {
 }
 
 void CodePreview::render() {
-    window_pos  = ImVec2(vert_sep_2, MenuBar::getWindowSize().y);
-    window_size = ImVec2(ImGui::GetIO().DisplaySize.x - vert_sep_2,
-        horiz_sep_1 - MenuBar::getWindowSize().y);
+    if(enabled) {
+        window_pos  = ImVec2(vert_sep_2, MenuBar::getWindowSize().y);
+        window_size = ImVec2(ImGui::GetIO().DisplaySize.x - vert_sep_2,
+            horiz_sep_1 - MenuBar::getWindowSize().y);
 
-    ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always);
-    ImGui::SetNextWindowSize(window_size, ImGuiCond_Always);
+        ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always);
+        ImGui::SetNextWindowSize(window_size, ImGuiCond_Always);
 
-    ImGui::Begin("Editor", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar);
-    
-    ImGui::Text("Code Preview");
+        ImGui::Begin("Editor", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar);
+        
+        ImGui::Text("Code Preview");
 
-    (* editor).Render("Text Editor");
+        (* editor).Render("Text Editor");
 
-    window_size = ImGui::GetWindowSize();
-    window_pos  = ImGui::GetWindowPos();
+        window_size = ImGui::GetWindowSize();
+        window_pos  = ImGui::GetWindowPos();
 
-    ImGui::End();
+        ImGui::End();
+    }
 }
 
 void CodePreview::enable() {

@@ -21,6 +21,7 @@
 #include "FileExplorer.h"
 #include "Score.h"
 #include "CodePreview.h"
+#include "NodeEditor.h"
 
 #include <iostream>
 

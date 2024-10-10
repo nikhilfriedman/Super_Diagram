@@ -13,6 +13,7 @@ extern bool quit;
 bool tmp1 = true;
 bool tmp2 = true;
 bool tmp3 = true;
+bool tmp4 = true;
 
 bool open_about = false;
 
@@ -32,8 +33,6 @@ void MenuBar::render() {
             no_resizing = true;
 
             FolderSelector::enable();
-
-            // ImGui::OpenPopup("FolderSelector");
         }
 
         if(ImGui::MenuItem("Save", "Ctrl-S")) {
@@ -70,6 +69,11 @@ void MenuBar::render() {
         if(ImGui::MenuItem("Code Preview", NULL, &tmp3)) {
             if(CodePreview::isEnabled())    CodePreview::disable();
             else                            CodePreview::enable();
+        }
+
+        if(ImGui::MenuItem("Node Editor", NULL, &tmp4)) {
+            if(NodeEditor::isEnabled())     NodeEditor::disable();
+            else                            NodeEditor::enable();
         }
 
         ImGui::EndMenu();

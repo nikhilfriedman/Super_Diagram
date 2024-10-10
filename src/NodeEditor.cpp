@@ -20,34 +20,36 @@ NodeEditor::NodeEditor(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
 }
 
 void NodeEditor::render() {
-    window_pos  = ImVec2(vert_sep_1, MenuBar::getWindowSize().y);
-    window_size = ImVec2(vert_sep_2 - vert_sep_1,
-        horiz_sep_1 - MenuBar::getWindowSize().y);
+    if(enabled) {
+        window_pos  = ImVec2(vert_sep_1, MenuBar::getWindowSize().y);
+        window_size = ImVec2(vert_sep_2 - vert_sep_1,
+            horiz_sep_1 - MenuBar::getWindowSize().y);
 
-    ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always);
-    ImGui::SetNextWindowSize(window_size, ImGuiCond_Always);
+        ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always);
+        ImGui::SetNextWindowSize(window_size, ImGuiCond_Always);
 
-    ImGui::Begin("Nodes", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+        ImGui::Begin("Nodes", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 
-    ImGui::Text("Node Editor");
+        ImGui::Text("Node Editor");
 
-    ImNodes::BeginNodeEditor();
+        ImNodes::BeginNodeEditor();
 
-    ImNodes::BeginNode(2); // TODO : FIX LATER
-    ImNodes::BeginNodeTitleBar();
-    ImGui::TextUnformatted("test node");
-    ImNodes::EndNodeTitleBar();
+        ImNodes::BeginNode(2); // TODO : FIX LATER
+        ImNodes::BeginNodeTitleBar();
+        ImGui::TextUnformatted("test node");
+        ImNodes::EndNodeTitleBar();
 
-    ImGui::Dummy(ImVec2(80.0f, 45.0f));
+        ImGui::Dummy(ImVec2(80.0f, 45.0f));
 
-    ImNodes::EndNode();
+        ImNodes::EndNode();
 
-    ImNodes::EndNodeEditor();
+        ImNodes::EndNodeEditor();
 
-    window_size = ImGui::GetWindowSize();
-    window_pos  = ImGui::GetWindowPos();
+        window_size = ImGui::GetWindowSize();
+        window_pos  = ImGui::GetWindowPos();
 
-    ImGui::End();
+        ImGui::End();
+    }
 }
 
 void NodeEditor::enable() {
