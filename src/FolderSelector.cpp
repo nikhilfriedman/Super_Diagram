@@ -8,6 +8,7 @@ GLFWwindow* FolderSelector::window = nullptr; // Pointer to GLFWwindow
 ImVec2 FolderSelector::window_pos = ImVec2(0, 0);
 ImVec2 FolderSelector::window_size = ImVec2(0, 0);
 
+extern bool no_resizing;
 
 FolderSelector::FolderSelector(ImVec2 ws, ImVec2 wp, std::string path, GLFWwindow * w) {
     enabled = false;
@@ -54,16 +55,53 @@ void FolderSelector::drawDirectory(std::string const& current_path) {
 }
 
 void FolderSelector::render() {
+    // if(enabled) {
+    //     // TODO : update to make more accurate
+    //     float menu_size = ImGui::GetFrameHeight();
+    //     ImVec2 display_size = ImGui::GetIO().DisplaySize;
+
+    //     ImGui::SetNextWindowPos(ImVec2((int) (display_size.x - window_size.x) >> 1, (int) (display_size.y - menu_size - window_size.y) >> 1), ImGuiCond_Appearing);
+    //     ImGui::SetNextWindowSize(ImVec2(window_size.x, window_size.y), ImGuiCond_Appearing);
+
+    //     ImGui::Begin("Test", NULL, ImGuiWindowFlags_NoTitleBar);
+
+    //     ImGui::Text("%s", selected_folder_path.c_str());
+    //     ImGui::Text("%s", selected_folder_name.c_str());
+
+    //     ImGui::BeginChild("TreeScrollArea", ImVec2(0, 300), true, ImGuiWindowFlags_HorizontalScrollbar);
+
+    //     if((selected_folder_path).size() != 0) {
+    //         drawDirectory(selected_folder_path);
+    //     } else {
+    //         ImGui::BulletText("No directory selected.");
+    //     }
+
+    //     ImGui::EndChild();
+
+    //     if(ImGui::Button("Test")) {
+    //         enabled = false;
+
+    //         no_resizing = false;
+    //     }
+
+    //     window_pos  = ImGui::GetWindowPos();
+    //     window_size = ImGui::GetWindowSize();
+
+    //     ImGui::End();
+    // }
+
     if(enabled) {
-        // TODO : update to make more accurate
-        float menu_size = ImGui::GetFrameHeight();
-        ImVec2 display_size = ImGui::GetIO().DisplaySize;
+        ImGui::OpenPopup("FolderSelector");
+        enabled = false;
+    }
 
-        ImGui::SetNextWindowPos(ImVec2((int) (display_size.x - window_size.x) >> 1, (int) (display_size.y - menu_size - window_size.y) >> 1), ImGuiCond_Appearing);
-        ImGui::SetNextWindowSize(ImVec2(window_size.x, window_size.y), ImGuiCond_Appearing);
+    float menu_size = ImGui::GetFrameHeight();
+    ImVec2 display_size = ImGui::GetIO().DisplaySize;
 
-        ImGui::Begin("Test", NULL, ImGuiWindowFlags_NoTitleBar);
+    ImGui::SetNextWindowPos(ImVec2((int) (display_size.x - window_size.x) >> 1, (int) (display_size.y - menu_size - window_size.y) >> 1), ImGuiCond_Appearing);
+    ImGui::SetNextWindowSize(ImVec2(window_size.x, window_size.y), ImGuiCond_Appearing);
 
+    if(ImGui::BeginPopupModal("FolderSelector", NULL, ImGuiWindowFlags_NoTitleBar)) {
         ImGui::Text("%s", selected_folder_path.c_str());
         ImGui::Text("%s", selected_folder_name.c_str());
 
@@ -79,12 +117,16 @@ void FolderSelector::render() {
 
         if(ImGui::Button("Test")) {
             enabled = false;
+
+            no_resizing = false;
+
+            ImGui::CloseCurrentPopup();
         }
 
         window_pos  = ImGui::GetWindowPos();
         window_size = ImGui::GetWindowSize();
 
-        ImGui::End();
+        ImGui::EndPopup();
     }
 }
 

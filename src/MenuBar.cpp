@@ -32,6 +32,8 @@ void MenuBar::render() {
             no_resizing = true;
 
             FolderSelector::enable();
+
+            // ImGui::OpenPopup("FolderSelector");
         }
 
         if(ImGui::MenuItem("Save", "Ctrl-S")) {
