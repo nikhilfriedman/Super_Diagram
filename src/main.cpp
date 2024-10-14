@@ -95,9 +95,9 @@ int main(int, char**) {
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
 
-        vert_sep_1 = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
-        vert_sep_2 = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
-        horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
+        // vert_sep_1 = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
+        // vert_sep_2 = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
+        // horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
 
         if(FileExplorer::isEnabled()) {
             vert_sep_1 = (vert_sep_1 >= MIN_WH) ? vert_sep_1 : MIN_WH;
@@ -136,6 +136,8 @@ int main(int, char**) {
                 ImGui::GetIO().DisplaySize.y - MIN_WH);
         }
         else horiz_sep_1 = ImGui::GetIO().DisplaySize.y;
+
+        // if(!NodeEditor::isEnabled()) vert_sep_2 = vert_sep_1;
 
         MenuBar::render();
 
