@@ -13,6 +13,8 @@ extern float vert_sep_1;
 extern float vert_sep_2;
 extern float horiz_sep_1;
 
+extern ImFont * cousine;
+
 CodePreview::CodePreview(ImVec2 ws, ImVec2 wp, TextEditor * e, GLFWwindow * w) {
     window_size = ws;
     window_pos  = wp;
@@ -35,7 +37,11 @@ void CodePreview::render() {
         
         ImGui::Text("Code Preview");
 
+        ImGui::PushFont(cousine);
+
         (* editor).Render("Text Editor");
+
+        ImGui::PopFont();
 
         window_size = ImGui::GetWindowSize();
         window_pos  = ImGui::GetWindowPos();

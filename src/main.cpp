@@ -34,6 +34,9 @@ float horiz_sep_1   = 0.0;
 
 std::string window_title = "Welcome - superdiagram";
 
+ImFont * sans_bold;
+ImFont * cousine;
+
 int main(int, char**) {
     // Setup graphics
     glfwSetErrorCallback(glfw_error_callback);

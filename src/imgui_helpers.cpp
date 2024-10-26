@@ -1,5 +1,8 @@
 #include "imgui_helpers.h"
 
+extern ImFont * sans_bold;
+extern ImFont * cousine;
+
 void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
@@ -20,7 +23,11 @@ ImGuiIO& create_imgui_context(GLFWwindow * window)
 
     io.Fonts -> Clear();
     // io.Fonts -> AddFontFromFileTTF("../external/fonts/WorkSans-Bold.ttf", 16.0f);
-    io.Fonts -> AddFontFromFileTTF("../external/fonts/Cousine-Bold.ttf", 16.0f);
+    // io.Fonts -> AddFontFromFileTTF("../external/fonts/Cousine-Bold.ttf", 16.0f);
+
+    sans_bold  = io.Fonts->AddFontFromFileTTF("../external/fonts/WorkSans-Bold.ttf", 16.0f);
+    cousine    = io.Fonts->AddFontFromFileTTF("../external/fonts/Cousine-Bold.ttf", 16.0f);
+
     io.Fonts -> Build();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
