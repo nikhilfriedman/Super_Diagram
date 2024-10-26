@@ -107,6 +107,7 @@ int main(int, char**) {
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
 
         if(!FolderSelector::isFolderSelected()) {
+            no_resizing = true;
             FolderSelector::enable();
         } else {
             glfwSetWindowTitle(window, window_title.c_str());

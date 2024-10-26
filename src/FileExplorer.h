@@ -19,6 +19,7 @@
 
 #include "MenuBar.h"
 #include "FolderSelector.h"
+#include "CodePreview.h"
 
 #include <iostream>
 #include <filesystem>
@@ -34,10 +35,15 @@ class FileExplorer {
 
         static bool isEnabled();
 
+        static std::string getSelectedFile();
+        static std::string getSelectedFolder();
+
         static ImVec2 getWindowSize();
         static ImVec2 getWindowPos();
 
     private:
+        static void drawDirectory(const std::filesystem::path& path_to_display);
+
         static GLFWwindow * window;
 
         static ImVec2 window_size;
@@ -45,6 +51,8 @@ class FileExplorer {
 
         static bool enabled;
         
+        static std::string selected_file;
+        static std::string selected_folder;
 };
 
 #endif

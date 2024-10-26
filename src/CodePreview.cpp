@@ -44,6 +44,28 @@ void CodePreview::render() {
     }
 }
 
+std::string CodePreview::readFileToString(const std::string& filepath) {
+    std::ifstream file(filepath);
+
+    if(!file.is_open()) {
+        return "";
+    }
+
+    std::string file_content((std::istreambuf_iterator<char>(file)),
+        std::istreambuf_iterator<char>());
+
+    file.close();
+    return file_content;
+}
+
+void CodePreview::loadFile(const std::string& filepath) {
+    try {
+        editor->SetText(readFileToString(filepath));
+    } catch(const std::exception& e) {
+        editor->SetText(e.what());
+    }
+}
+
 void CodePreview::enable() {
     enabled = true;
 }

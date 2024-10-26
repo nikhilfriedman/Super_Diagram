@@ -20,6 +20,7 @@
 #include "MenuBar.h"
 
 #include <iostream>
+#include <fstream>
 
 class CodePreview {
     public:
@@ -30,6 +31,8 @@ class CodePreview {
         static void enable();
         static void disable();
 
+        static void loadFile(const std::string& filepath);
+
         static bool isEnabled();
 
         static ImVec2 getWindowSize();
@@ -38,6 +41,8 @@ class CodePreview {
         static std::string getCurrentFilepath();
 
     private:
+        static std::string readFileToString(const std::string& filepath);
+
         static GLFWwindow * window;
 
         static TextEditor * editor;

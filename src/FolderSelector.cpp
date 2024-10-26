@@ -40,8 +40,8 @@ void FolderSelector::drawDirectory(std::string const& current_path) {
 
             if(std::filesystem::is_directory(entry.status())) {
                 if(ImGui::Selectable(filename.c_str())) {
-                        selected_folder_name = filename;
-                        selected_folder_path = path.string();   
+                    selected_folder_name = filename;
+                    selected_folder_path = path.string();   
                 }
             } else {
                 ImGui::Text("%s", filename.c_str());

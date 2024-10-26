@@ -7,34 +7,40 @@ ImVec2 FileExplorer::window_pos = ImVec2(0, 0);
 
 bool FileExplorer::enabled = true;
 
+std::string FileExplorer::selected_file = "";
+std::string FileExplorer::selected_folder = "";
+
 extern float vert_sep_1;
 extern float vert_sep_2;
 extern float horiz_sep_1;
 
 FileExplorer::FileExplorer(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
     window_size = ws;
-    window_pos = wp;
-    window = w;
+    window_pos  = wp;
+    window      = w;
 
     enabled = true;
+
+    selected_file   = "";
+    selected_folder = "";
 }
 
-void drawDirectory(const std::filesystem::path& path_to_display) {
+void FileExplorer::drawDirectory(const std::filesystem::path& path_to_display) {
     try {
-        for(const auto& entry : std::filesystem::directory_iterator(path_to_display))
-        {
+        for(const auto& entry : std::filesystem::directory_iterator(path_to_display)) {
             const auto& path = entry.path();
             std::string filename = path.filename().string();
 
-            if(std::filesystem::is_directory(entry.status()))
-            {
-                if(ImGui::TreeNode(filename.c_str()))
-                {
+            if(std::filesystem::is_directory(entry.status())) {
+                if(ImGui::TreeNode(filename.c_str())) {
                     drawDirectory(path);
                     ImGui::TreePop();
                 }
             } else {
-                ImGui::BulletText("%s", filename.c_str());
+                if(ImGui::Selectable(filename.c_str())) {
+                    selected_file = std::string(path_to_display) + "/" + filename;
+                    CodePreview::loadFile(selected_file);
+                }
             }
         }
     } catch(const std::filesystem::filesystem_error& e) {
@@ -60,13 +66,11 @@ void FileExplorer::render() {
 
         ImGui::Text("Explorer");
 
-        if(FolderSelector::getFolderPath().size() != 0)
-        {
+        if(FolderSelector::getFolderPath().size() != 0) {
             drawDirectory(std::filesystem::path(FolderSelector::getFolderPath()));
         } else {
             ImGui::BulletText("No directory selected.");
         }
-
 
         window_size = ImGui::GetWindowSize();
         window_pos  = ImGui::GetWindowPos();
@@ -85,6 +89,14 @@ void FileExplorer::disable() {
 
 bool FileExplorer::isEnabled() {
     return enabled;
+}
+
+std::string FileExplorer::getSelectedFile() {
+    return selected_file;
+}
+
+std::string FileExplorer::getSelectedFolder() {
+    return selected_folder;
 }
 
 ImVec2 FileExplorer::getWindowSize() {
