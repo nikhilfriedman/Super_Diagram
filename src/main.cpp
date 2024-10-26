@@ -32,6 +32,8 @@ float vert_sep_1    = 0.0;
 float vert_sep_2    = 0.0;
 float horiz_sep_1   = 0.0;
 
+std::string window_title = "Welcome - superdiagram";
+
 int main(int, char**) {
     // Setup graphics
     glfwSetErrorCallback(glfw_error_callback);
@@ -39,7 +41,7 @@ int main(int, char**) {
 
     // glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "[no file selected] - superdiagram", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1280, 720, window_title.c_str(), NULL, NULL);
     if (window == NULL) return EXIT_FAILURE;
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
@@ -56,6 +58,7 @@ int main(int, char**) {
     // Text Editor
     TextEditor editor;
     const char * start_text = "No file selected.";
+    editor.SetReadOnly(true);
     editor.SetLanguageDefinition(TextEditor::LanguageDefinition::CPlusPlus());
     editor.SetShowWhitespaces(false);
     editor.SetText(start_text);
@@ -95,7 +98,6 @@ int main(int, char**) {
     while (!glfwWindowShouldClose(window)) {
         if(quit) break;
 
-
         vert_sep_1 = vert1.getValue();
         vert_sep_2 = vert2.getValue();
         horiz_sep_1 = horiz1.getValue();
@@ -103,6 +105,12 @@ int main(int, char**) {
         imgui_init_render();
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
+
+        if(!FolderSelector::isFolderSelected()) {
+            FolderSelector::enable();
+        } else {
+            glfwSetWindowTitle(window, window_title.c_str());
+        }
 
         // vert_sep_1 = ImClamp(vert_sep_1, 0.0f, ImGui::GetIO().DisplaySize.x - MIN_WH * 2);
         // vert_sep_2 = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);

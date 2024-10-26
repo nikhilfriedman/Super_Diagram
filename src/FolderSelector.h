@@ -29,6 +29,8 @@ class FolderSelector {
 
         static bool isEnabled();
 
+        static bool isFolderSelected();
+
         static ImVec2 getWindowSize();
         static ImVec2 getWindowPos();
 
@@ -42,6 +44,8 @@ class FolderSelector {
         static ImVec2 window_pos;
 
         static bool enabled;
+
+        static bool folder_selected;
 
         static std::string selected_folder_path;
         static std::string selected_folder_name;

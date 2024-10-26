@@ -1,14 +1,16 @@
 #include "FolderSelector.h"
 
 bool FolderSelector::enabled = false;
-std::string FolderSelector::selected_folder_path = ""; // You need to define this even if it's a std::string
+bool FolderSelector::folder_selected = false;;
+std::string FolderSelector::selected_folder_path = "";
 std::string FolderSelector::selected_folder_name = "";
-GLFWwindow* FolderSelector::window = nullptr; // Pointer to GLFWwindow
+GLFWwindow* FolderSelector::window = nullptr;
 
 ImVec2 FolderSelector::window_pos = ImVec2(0, 0);
 ImVec2 FolderSelector::window_size = ImVec2(0, 0);
 
 extern bool no_resizing;
+extern std::string window_title;
 
 FolderSelector::FolderSelector(ImVec2 ws, ImVec2 wp, std::string path, GLFWwindow * w) {
     enabled = false;
@@ -18,6 +20,8 @@ FolderSelector::FolderSelector(ImVec2 ws, ImVec2 wp, std::string path, GLFWwindo
 
     selected_folder_path = path;
     selected_folder_name = "[no folder selected]";
+
+    folder_selected = false;
 
     window = w;
 }
@@ -120,6 +124,10 @@ void FolderSelector::render() {
 
             no_resizing = false;
 
+            folder_selected = true;
+
+            window_title = selected_folder_name + " - superdiagram";
+
             ImGui::CloseCurrentPopup();
         }
 
@@ -148,6 +156,10 @@ std::string FolderSelector::getFolderName() {
 
 bool FolderSelector::isEnabled() {
     return enabled;
+}
+
+bool FolderSelector::isFolderSelected() {
+    return folder_selected;
 }
 
 ImVec2 FolderSelector::getWindowSize() {
