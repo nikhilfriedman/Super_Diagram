@@ -24,16 +24,17 @@ typedef enum Separator_Orientation {
 
 class WindowSeparator {
     public:
-        WindowSeparator(Separator_Orientation orientation, float value, 
-            float hb_min, float hb_max, float v_min, float v_max);
+        WindowSeparator(Separator_Orientation orientation, float value, int e_size);
         ~WindowSeparator();
 
-        void update();
+        void update(float value_min, float value_max, float hitbox_min, float hitbox_max);
+        void setValue(float v);
 
         void enable();
         void disable();
 
         bool isEnabled();
+        bool isUpdating();
 
         float getValue();
 
@@ -44,7 +45,7 @@ class WindowSeparator {
         float getHitboxMax();
 
     private:
-        Separator_Orientation   orientation;
+        Separator_Orientation orientation;
         
         float value;
 
@@ -53,6 +54,8 @@ class WindowSeparator {
         
         float value_min;
         float value_max;
+
+        int edge_size;
 
         bool enabled;
         bool updating;

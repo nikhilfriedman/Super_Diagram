@@ -40,7 +40,8 @@ add_executable(super_diagram
     src/FileExplorer.cpp
     src/Score.cpp
     src/NodeEditor.cpp
-    src/CodePreview.cpp)
+    src/CodePreview.cpp
+    src/WindowSeparator.cpp)
 
 # Link libraries
 target_link_libraries(super_diagram glfw glad imgui)

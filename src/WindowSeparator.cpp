@@ -1,52 +1,48 @@
 #include "WindowSeparator.h"
 
-WindowSeparator::WindowSeparator(Separator_Orientation o,
-    float v, float hb_min, float hb_max, float v_min, float v_max) {
-
+WindowSeparator::WindowSeparator(Separator_Orientation o, float v, int e_size) {
     orientation = o;
     value       = v;
-    hitbox_min  = hb_min;
-    hitbox_max  = hb_max;
-    value_min   = v_min;
-    value_max   = v_max;
+    edge_size   = e_size;
 
     enabled     = true;
     updating    = false;
 }
 
+void WindowSeparator::update(float value_min, float value_max, float hitbox_min, float hitbox_max) {
+    if(enabled) {
+        ImVec2 mouse_pos = ImGui::GetMousePos();
 
-/*
-void update_vert_sep(float * value, float y_min, float y_max, bool * changing, float min, float max)
-{
-    if(* changing) * value = ImClamp(* value + ImGui::GetIO().MouseDelta.x, min, max);
+        if(orientation == VERTICAL) {
+            if(updating) value = ImClamp(value + ImGui::GetIO().MouseDelta.x, value_min, value_max);
 
-    ImVec2 mouse_pos = ImGui::GetMousePos();
+            if(abs(mouse_pos.x - value) <= edge_size && mouse_pos.y >= hitbox_min && mouse_pos.y <= hitbox_max) {
+                ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeEW);
 
-    if(abs(mouse_pos.x - (* value)) <= EDGE_SIZE && mouse_pos.y >= y_min && mouse_pos.y <= y_max)
-    {
-        ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeEW);
+                if(ImGui::IsMouseDown(ImGuiMouseButton_Left) || ImGui::IsMouseDragging(ImGuiMouseButton_Left)) {
+                    updating = true;
+                }
+            }
 
-        if(ImGui::IsMouseDown(ImGuiMouseButton_Left) || ImGui::IsMouseDragging(ImGuiMouseButton_Left))
-        {
-            * changing = true;
-        }
-    }
+            if(!ImGui::IsMouseDown(ImGuiMouseButton_Left)) updating = false;
+        } else {
+            if(updating) value = ImClamp(value + ImGui::GetIO().MouseDelta.y, value_min, value_max);
 
-    if(!ImGui::IsMouseDown(ImGuiMouseButton_Left)) * changing = false;
+            if(abs(mouse_pos.y - value) <= edge_size && mouse_pos.x >= hitbox_min && mouse_pos.x <= hitbox_max) {
+                ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeNS);
+
+                if(ImGui::IsMouseDown(ImGuiMouseButton_Left) || ImGui::IsMouseDragging(ImGuiMouseButton_Left)) {
+                    updating = true;
+                }
+            }
+
+            if(!ImGui::IsMouseDown(ImGuiMouseButton_Left)) updating = false;
+        }     
+    } else value = 0;
 }
 
-                    ^
-                    |
-implement this lol  |
-*/
-void WindowSeparator::update() {
-    if(enabled) {
-        if(orientation == VERTICAL) {
-            if(updating) value = 0; //TODO : FINISH
-        } else {
-
-        }     
-    }
+void WindowSeparator::setValue(float v) {
+    value = v;
 }
 
 void WindowSeparator::enable() {
@@ -59,6 +55,10 @@ void WindowSeparator::disable() {
 
 bool WindowSeparator::isEnabled() {
     return enabled;
+}
+
+bool WindowSeparator::isUpdating() {
+    return updating;
 }
 
 float WindowSeparator::getValue() {

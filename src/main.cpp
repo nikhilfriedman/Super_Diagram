@@ -23,6 +23,7 @@
 #include "Score.h"
 #include "NodeEditor.h"
 #include "CodePreview.h"
+#include "WindowSeparator.h"
 
 bool no_resizing    = false;
 bool quit           = false;
@@ -87,9 +88,18 @@ int main(int, char**) {
     vert_sep_2 = 1000;
     horiz_sep_1 = 400;
 
-    while (!glfwWindowShouldClose(window))
-    {
+    WindowSeparator vert1   = WindowSeparator(VERTICAL, 400, 5);
+    WindowSeparator vert2   = WindowSeparator(VERTICAL, 1000, 5);
+    WindowSeparator horiz1  = WindowSeparator(HORIZONTAL, 400, 5);
+
+    while (!glfwWindowShouldClose(window)) {
         if(quit) break;
+
+
+        vert_sep_1 = vert1.getValue();
+        vert_sep_2 = vert2.getValue();
+        horiz_sep_1 = horiz1.getValue();
+
 
         imgui_init_render();
 
@@ -99,17 +109,31 @@ int main(int, char**) {
         // vert_sep_2 = ImClamp(vert_sep_2, vert_sep_1 + MIN_WH, ImGui::GetIO(). DisplaySize.x - MIN_WH);
         // horiz_sep_1 = ImClamp(horiz_sep_1, MenuBar::getWindowPos().y + MenuBar::getWindowSize().y + MIN_WH, ImGui::GetIO().DisplaySize.y - MIN_WH);
 
-        if(FileExplorer::isEnabled()) {
-            vert_sep_1 = (vert_sep_1 >= MIN_WH) ? vert_sep_1 : MIN_WH;
+        // if(FileExplorer::isEnabled()) {
+        //     vert_sep_1 = (vert_sep_1 >= MIN_WH) ? vert_sep_1 : MIN_WH;
 
-            if (!resize_horiz_sep_1 && !resize_vert_sep_2 && !no_resizing) update_vert_sep(&(vert_sep_1),
-                MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
-                ImGui::GetIO().DisplaySize.y,
-                &(resize_vert_sep_1), 
-                MIN_WH, 
-                vert_sep_2 - MIN_WH);
+        //     if (!resize_horiz_sep_1 && !resize_vert_sep_2 && !no_resizing) update_vert_sep(&(vert_sep_1),
+        //         MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
+        //         ImGui::GetIO().DisplaySize.y,
+        //         &(resize_vert_sep_1), 
+        //         MIN_WH, 
+        //         vert_sep_2 - MIN_WH);
+        // }
+        // else vert_sep_1 = 0;
+
+        if(FileExplorer::isEnabled()) {
+            vert1.setValue((vert1.getValue() >= MIN_WH) ? vert1.getValue() : MIN_WH);
+
+            if(!horiz1.isUpdating() && !vert2.isUpdating() && !no_resizing) {
+                vert1.update(MIN_WH,
+                    vert2.getValue() - MIN_WH,
+                    MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
+                    ImGui::GetIO().DisplaySize.y);
+            }
+        } else {
+            vert1.setValue(0);
+            vert1.disable();
         }
-        else vert_sep_1 = 0;
 
         if(CodePreview::isEnabled()) {
             vert_sep_2 = (vert_sep_2 >= vert_sep_1 + MIN_WH && vert_sep_2 <= ImGui::GetIO().DisplaySize.x - MIN_WH) ? 
