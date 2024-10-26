@@ -74,7 +74,7 @@ int main(int, char**) {
 
     // Main menu
 
-    FolderSelector fs = FolderSelector(ImVec2(600, 400), ImVec2(0, 0), "/home", window);
+    FolderSelector fs = FolderSelector(ImVec2(600, 400), ImVec2(0, 0), "/home/nikhil/Github/Super_Diagram", window);
 
     MenuBar mb = MenuBar(ImVec2(0,0), ImVec2(0, 0), window);
 
