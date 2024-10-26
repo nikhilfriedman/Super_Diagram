@@ -19,7 +19,8 @@ ImGuiIO& create_imgui_context(GLFWwindow * window)
     ImGuiIO& io = ImGui::GetIO();
 
     io.Fonts -> Clear();
-    io.Fonts -> AddFontFromFileTTF("../external/fonts/WorkSans-Bold.ttf", 16.0f);
+    // io.Fonts -> AddFontFromFileTTF("../external/fonts/WorkSans-Bold.ttf", 16.0f);
+    io.Fonts -> AddFontFromFileTTF("../external/fonts/Cousine-Bold.ttf", 16.0f);
     io.Fonts -> Build();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
