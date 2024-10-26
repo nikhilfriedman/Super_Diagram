@@ -100,7 +100,6 @@ int main(int, char**) {
         vert_sep_2 = vert2.getValue();
         horiz_sep_1 = horiz1.getValue();
 
-
         imgui_init_render();
 
         check_window_resize(display_w, display_h, &prev_display_w, &prev_display_h, &window_resize);
@@ -122,6 +121,8 @@ int main(int, char**) {
         // else vert_sep_1 = 0;
 
         if(FileExplorer::isEnabled()) {
+            vert1.enable();
+
             vert1.setValue((vert1.getValue() >= MIN_WH) ? vert1.getValue() : MIN_WH);
 
             if(!horiz1.isUpdating() && !vert2.isUpdating() && !no_resizing) {
@@ -135,33 +136,68 @@ int main(int, char**) {
             vert1.disable();
         }
 
-        if(CodePreview::isEnabled()) {
-            vert_sep_2 = (vert_sep_2 >= vert_sep_1 + MIN_WH && vert_sep_2 <= ImGui::GetIO().DisplaySize.x - MIN_WH) ? 
-                vert_sep_2 : ImClamp((ImGui::GetIO().DisplaySize.x - vert_sep_1) / 2, vert_sep_1 + MIN_WH, ImGui::GetIO().DisplaySize.x - MIN_WH);
+        // if(CodePreview::isEnabled()) {
+        //     vert_sep_2 = (vert_sep_2 >= vert_sep_1 + MIN_WH && vert_sep_2 <= ImGui::GetIO().DisplaySize.x - MIN_WH) ? 
+        //         vert_sep_2 : ImClamp((ImGui::GetIO().DisplaySize.x - vert_sep_1) / 2, vert_sep_1 + MIN_WH, ImGui::GetIO().DisplaySize.x - MIN_WH);
                 
-            if(!resize_horiz_sep_1 && !resize_vert_sep_1 && !no_resizing) update_vert_sep(&(vert_sep_2), 
-                MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
-                Score::getWindowPos().y,
-                &(resize_vert_sep_2), 
-                vert_sep_1 + MIN_WH, 
-                ImGui::GetIO().DisplaySize.x - MIN_WH);
+        //     if(!resize_horiz_sep_1 && !resize_vert_sep_1 && !no_resizing) update_vert_sep(&(vert_sep_2), 
+        //         MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
+        //         Score::getWindowPos().y,
+        //         &(resize_vert_sep_2), 
+        //         vert_sep_1 + MIN_WH, 
+        //         ImGui::GetIO().DisplaySize.x - MIN_WH);
+        // }
+        // else vert_sep_2 = ImGui::GetIO().DisplaySize.x;
+
+        if(CodePreview::isEnabled()) {
+            vert2.enable();
+
+            vert2.setValue((vert2.getValue() >= vert1.getValue() + MIN_WH && vert2.getValue() <= ImGui::GetIO().DisplaySize.x - MIN_WH) ?
+                vert2.getValue() : ImClamp((ImGui::GetIO().DisplaySize.x - vert1.getValue()) / 2, vert1.getValue() + MIN_WH, ImGui::GetIO().DisplaySize.x - MIN_WH)); 
+
+            if(!horiz1.isUpdating() && !vert1.isUpdating() && !no_resizing) {
+                vert2.update(vert_sep_1 + MIN_WH, 
+                    ImGui::GetIO().DisplaySize.x - MIN_WH,
+                    MenuBar::getWindowPos().y + MenuBar::getWindowSize().y,
+                    Score::getWindowPos().y);
+            }
+        } else {
+            vert2.setValue(ImGui::GetIO().DisplaySize.x);
+            vert2.disable();
         }
-        else vert_sep_2 = ImGui::GetIO().DisplaySize.x;
+
+        // if(Score::isEnabled()) {
+        //     horiz_sep_1 = (horiz_sep_1 < ImGui::GetIO().DisplaySize.y - MIN_WH) ? 
+        //         horiz_sep_1 : ImGui::GetIO().DisplaySize.y - MIN_WH;
+
+        //     if(!resize_vert_sep_1 && !resize_vert_sep_2 && !no_resizing) update_horiz_sep(&(horiz_sep_1),
+        //         Score::getWindowPos().x,
+        //         ImGui::GetIO().DisplaySize.x,
+        //         &(resize_horiz_sep_1),
+        //         MenuBar::getWindowSize().y + MIN_WH,
+        //         ImGui::GetIO().DisplaySize.y - MIN_WH);
+        // }
+        // else horiz_sep_1 = ImGui::GetIO().DisplaySize.y;
 
         if(Score::isEnabled()) {
-            horiz_sep_1 = (horiz_sep_1 < ImGui::GetIO().DisplaySize.y - MIN_WH) ? 
-                horiz_sep_1 : ImGui::GetIO().DisplaySize.y - MIN_WH;
+            horiz1.enable();
 
-            if(!resize_vert_sep_1 && !resize_vert_sep_2 && !no_resizing) update_horiz_sep(&(horiz_sep_1),
-                Score::getWindowPos().x,
-                ImGui::GetIO().DisplaySize.x,
-                &(resize_horiz_sep_1),
-                MenuBar::getWindowSize().y + MIN_WH,
-                ImGui::GetIO().DisplaySize.y - MIN_WH);
+            horiz1.setValue((horiz1.getValue() < ImGui::GetIO().DisplaySize.y - MIN_WH) ?
+                horiz1.getValue() : ImGui::GetIO().DisplaySize.y - MIN_WH);
+
+            if(!vert1.isUpdating() && !vert2.isUpdating() && !no_resizing) {
+                horiz1.update(MenuBar::getWindowSize().y + MIN_WH,
+                    ImGui::GetIO().DisplaySize.y - MIN_WH,
+                    Score::getWindowPos().x,
+                    ImGui::GetIO().DisplaySize.x);
+            }
+        } else {
+            horiz1.setValue(ImGui::GetIO().DisplaySize.y);
+            horiz1.disable();
         }
-        else horiz_sep_1 = ImGui::GetIO().DisplaySize.y;
 
-        // if(!NodeEditor::isEnabled()) vert_sep_2 = vert_sep_1;
+        if(!NodeEditor::isEnabled()) vert_sep_2 = vert_sep_1;
+        if(!NodeEditor::isEnabled() && !CodePreview::isEnabled()) horiz_sep_1 = MenuBar::getWindowSize().y;
 
         MenuBar::render();
 
