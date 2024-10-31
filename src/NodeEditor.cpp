@@ -19,6 +19,37 @@ NodeEditor::NodeEditor(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
     enabled = true;
 }
 
+std::vector<std::string> extractFunctionNames(const std::string& cppCode) {
+    // Updated regex to handle optional qualifiers
+    // std::regex functionRegex(R"(\w+\s+(\w+)\s*\(.*\))");
+
+    std::regex functionRegex(R"(\b(\w+)\s*\(\)\s*;)");
+
+    std::smatch match;
+    std::vector<std::string> functionNames;
+
+    // Iterate through all matches
+    std::string::const_iterator searchStart(cppCode.cbegin());
+    while (std::regex_search(searchStart, cppCode.cend(), match, functionRegex)) {
+        // match[3] corresponds to the function name with updated regex
+        functionNames.push_back(match[1]);
+        searchStart = match.suffix().first;
+    }
+
+    return functionNames;
+}
+
+void NodeEditor::getFunctionsFromFile(std::string file) {
+    std::vector<std::string> functions = extractFunctionNames(file);
+
+    if(functions.empty()) std::cout << ":(\n";
+
+    for(std::string s : functions) {
+        std::cout << s << "\n";
+    }
+    std::cout << "\n";
+}
+
 void NodeEditor::render() {
     if(enabled) {
         window_pos  = ImVec2(vert_sep_1, MenuBar::getWindowSize().y);
@@ -47,6 +78,8 @@ void NodeEditor::render() {
 
         window_size = ImGui::GetWindowSize();
         window_pos  = ImGui::GetWindowPos();
+
+        getFunctionsFromFile(CodePreview::getText());
 
         ImGui::End();
     }

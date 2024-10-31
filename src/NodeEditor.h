@@ -13,13 +13,14 @@
 #include "imnodes.h"
 #include "imnodes_internal.h"
 
-#include "TextEditor.h"
-
 #include <iostream>
+#include <regex>
+#include <vector>
 
 #include "imgui_helpers.h"
 
 #include "MenuBar.h"
+#include "TextEditor.h"
 
 class NodeEditor {
     public:
@@ -36,6 +37,8 @@ class NodeEditor {
         static ImVec2 getWindowPos();
 
     private:
+        static void getFunctionsFromFile(std::string file);
+
         static GLFWwindow * window;
 
         static ImVec2 window_size;

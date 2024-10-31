@@ -35,6 +35,8 @@ class CodePreview {
 
         static bool isEnabled();
 
+        static std::string getText();
+
         static ImVec2 getWindowSize();
         static ImVec2 getWindowPos();
 

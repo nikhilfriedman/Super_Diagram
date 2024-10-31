@@ -53,9 +53,7 @@ void CodePreview::render() {
 std::string CodePreview::readFileToString(const std::string& filepath) {
     std::ifstream file(filepath);
 
-    if(!file.is_open()) {
-        return "";
-    }
+    if(!file.is_open()) return "";
 
     std::string file_content((std::istreambuf_iterator<char>(file)),
         std::istreambuf_iterator<char>());
@@ -82,6 +80,10 @@ void CodePreview::disable() {
 
 bool CodePreview::isEnabled() {
     return enabled;
+}
+
+std::string CodePreview::getText() {
+    return editor->GetText();
 }
 
 ImVec2 CodePreview::getWindowSize() {
