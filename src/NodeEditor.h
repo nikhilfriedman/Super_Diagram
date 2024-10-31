@@ -37,7 +37,7 @@ class NodeEditor {
         static ImVec2 getWindowPos();
 
     private:
-        static void getFunctionsFromFile(std::string file);
+        static std::vector<std::string> getFunctionsFromFile(std::string file);
 
         static GLFWwindow * window;
 

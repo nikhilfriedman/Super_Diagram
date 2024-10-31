@@ -19,35 +19,19 @@ NodeEditor::NodeEditor(ImVec2 ws, ImVec2 wp, GLFWwindow * w) {
     enabled = true;
 }
 
-std::vector<std::string> extractFunctionNames(const std::string& cppCode) {
-    // Updated regex to handle optional qualifiers
-    // std::regex functionRegex(R"(\w+\s+(\w+)\s*\(.*\))");
+std::vector<std::string> NodeEditor::getFunctionsFromFile(std::string file) {
+    std::regex function_names_regex(R"(\b(\w+)\s*\(\)\s*;)");
 
-    std::regex functionRegex(R"(\b(\w+)\s*\(\)\s*;)");
-
+    std::vector<std::string> functions;
     std::smatch match;
-    std::vector<std::string> functionNames;
 
-    // Iterate through all matches
-    std::string::const_iterator searchStart(cppCode.cbegin());
-    while (std::regex_search(searchStart, cppCode.cend(), match, functionRegex)) {
-        // match[3] corresponds to the function name with updated regex
-        functionNames.push_back(match[1]);
-        searchStart = match.suffix().first;
+    std::string::const_iterator search(file.cbegin());
+    while(std::regex_search(search, file.cend(), match, function_names_regex)) {
+        functions.push_back(match[1]);
+        search = match.suffix().first;
     }
 
-    return functionNames;
-}
-
-void NodeEditor::getFunctionsFromFile(std::string file) {
-    std::vector<std::string> functions = extractFunctionNames(file);
-
-    if(functions.empty()) std::cout << ":(\n";
-
-    for(std::string s : functions) {
-        std::cout << s << "\n";
-    }
-    std::cout << "\n";
+    return functions;
 }
 
 void NodeEditor::render() {
@@ -65,21 +49,34 @@ void NodeEditor::render() {
 
         ImNodes::BeginNodeEditor();
 
-        ImNodes::BeginNode(2); // TODO : FIX LATER
-        ImNodes::BeginNodeTitleBar();
-        ImGui::TextUnformatted("test node");
-        ImNodes::EndNodeTitleBar();
+        std::vector<std::string> functions = getFunctionsFromFile(CodePreview::getText());
 
-        ImGui::Dummy(ImVec2(80.0f, 45.0f));
+        int ct = 0;
+        for(std::string s : functions) {
+            ImNodes::BeginNode(ct);
+            ImNodes::BeginNodeTitleBar();
+            ImGui::TextUnformatted(s.c_str());
+            ImNodes::EndNodeTitleBar();
+            ImGui::Dummy(ImVec2(80.0f, 45.0f));
+            ImNodes::EndNode();
 
-        ImNodes::EndNode();
+            ImNodes::SetNodeEditorSpacePos(ct, ImVec2(ct * 150, 0));
+            ct++;
+        }
+
+        // ImNodes::BeginNode(2); // TODO : FIX LATER
+        // ImNodes::BeginNodeTitleBar();
+        // ImGui::TextUnformatted("test node");
+        // ImNodes::EndNodeTitleBar();
+
+        // ImGui::Dummy(ImVec2(80.0f, 45.0f));
+
+        // ImNodes::EndNode();
 
         ImNodes::EndNodeEditor();
 
         window_size = ImGui::GetWindowSize();
         window_pos  = ImGui::GetWindowPos();
-
-        getFunctionsFromFile(CodePreview::getText());
 
         ImGui::End();
     }
