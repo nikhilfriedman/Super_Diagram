@@ -38,7 +38,10 @@ void FileExplorer::drawDirectory(const std::filesystem::path& path_to_display) {
                 }
             } else {
                 if(ImGui::Selectable(filename.c_str())) {
-                    selected_file = std::string(path_to_display) + "/" + filename;
+                    // selected_file = std::string(path_to_display) + "/" + filename;
+
+                    selected_file = path_to_display.string() + "/" + filename;
+
                     CodePreview::loadFile(selected_file);
                 }
             }
