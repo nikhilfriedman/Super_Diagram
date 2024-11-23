@@ -25,6 +25,15 @@
 #include "CodePreview.h"
 #include "WindowSeparator.h"
 
+struct Line {
+    ImVec2 start;
+    ImVec2 end;
+};
+
+std::vector<Line> lines;  // Store all drawn lines
+bool is_drawing = false;  // Track whether the user is drawing
+ImVec2 start_point;       // Start point of the current line
+
 bool no_resizing    = false;
 bool quit           = false;
 
@@ -222,6 +231,31 @@ int main(int, char**) {
         NodeEditor::render();
 
         CodePreview::render();
+
+        // Drawing lines on the canvas
+        ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
+        ImGuiIO& io = ImGui::GetIO();
+
+        // Handle mouse input for drawing
+        if (ImGui::IsMouseDown(0)) {
+            if (!is_drawing) {
+                // Start a new line
+                start_point = io.MousePos;
+                is_drawing = true;
+            } else {
+                // Draw the preview line while dragging
+                draw_list->AddRect(start_point, io.MousePos, IM_COL32(255, 0, 0, 255), 2.0f);
+            }
+        } else if (is_drawing && ImGui::IsMouseReleased(0)) {
+            // Finalize the line
+            lines.push_back({start_point, io.MousePos});
+            is_drawing = false;
+        }
+
+        // Render finalized lines
+        for (const auto& line : lines) {
+            draw_list->AddRect(line.start, line.end, IM_COL32(0, 255, 0, 255), 2.0f);
+        }
 
         imgui_render_frame(window, &display_w, &display_h);
     }
