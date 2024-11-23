@@ -222,15 +222,15 @@ int main(int, char**) {
 
         MenuBar::render();
 
-        FolderSelector::render();
+        // FolderSelector::render();
 
-        FileExplorer::render();
+        // FileExplorer::render();
 
-        Score::render();
+        // Score::render();
 
-        NodeEditor::render();
+        // NodeEditor::render();
 
-        CodePreview::render();
+        // CodePreview::render();
 
         // Drawing lines on the canvas
         ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
